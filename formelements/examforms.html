@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+function collapsed(){
+    document.getElementById("collapse").style.display="none"
+}
+    function colorstyle(){
+        document.getElementById("overall").style.background="yellow"
+    }
+</script>
+<body>
+    <div id="overall">
+    <form action="examsubmitted.html" method="get">
+        <div id="collapse">
+    Location
+    <input type="text" placeholder="sdsdff">
+    <br>
+    <br>
+    <br>
+</div>
+    Flowers
+    <select multiple name="flowers">
+        <option>Rose</option>
+        <option>Lily</option>
+    </select>
+    <br>
+    <br>
+    <input type="Submit">
+    <input type="button" value="change color" id="color" onclick="colorstyle()">
+    
+    <input type="button" value="Hide Location"  onclick="collapsed()">
+
+    </form>
+</div>
+</body>
+</html>
