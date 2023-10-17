@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function addition(){
+       let num1=document.getElementById("num1")
+        let num2=document.getElementById("num2")
+ console.log(parseInt(num1.value)+parseInt(num2.value))
+    }
+</script>
+<body>
+    Enter the First Number
+    <br>
+    <input type="number" id="num1">
+    <br>
+    Enter the Second Number
+    <br>
+    <input type="number" id="num2">
+    <br>
+    <button onclick="addition();">Sum</button>
+</body>
