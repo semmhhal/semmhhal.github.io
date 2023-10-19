@@ -6,31 +6,26 @@
     <title>Document</title>
 </head>
 <script>
-    function addition(){
-       let num1=document.getElementById("num1");
-        let num2=document.getElementById("num2");
-        let num3=document.getElementById("num3");
-        let result=document.getElementById("result")
-result.value=parseInt(num1.value)+parseInt(num2.value)+parseInt(num3.value)
-console.log(result.value)
+    function add(){
+        n1=document.getElementById("num1")
+        n2=document.getElementById("num2")
+        n3=document.getElementById("num3")
+        sum=parseInt(n1.value)+parseInt(n2.value)+parseInt(n3.value)
+        
+        textvalue=document.getElementById("result")
+        textvalue.value=sum
+
+
     }
 </script>
 <body>
-    Enter the First Number
+    Number 1<input type="number" id="num1">
     <br>
-    <input type="text" id="num1">
+    Number 2<input type="number" id="num2">
     <br>
-    Enter the Second Number
+    Number 3<input type="number" id="num3">
     <br>
-    <input type="text" id="num2">
-    <br>
-    Enter the third number 
-    <br>
-    <input type="text" id="num3">
-    <br>
-final
-<br>
-<textarea id="result"></textarea>
-<br>
-    <button onclick="addition();">Sum</button>
+    <input type="button" value="add" onclick="add()">
+    <textarea id="result"></textarea>
 </body>
+</html>
