@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload= function(){
+        let mydiv=document.createElement("select")
+        mydiv.innerHTML="<label>Scripture</label>" +"<select>"
+        + "<option>Vedas</option>" 
+        + "<option>Upinashads</option" + "</select>" + '<button onclick="show()">show</button>'
+        +'<div id="checkboxdiv"></div>' + "</hr>" + "<button onclick='getcheckboxvalue();'>submit</button>";
+        document.body.append(mydiv)
+    }
+    function show(){
+        selection=document.querySelector('select option:checked').value
+        checkboxdiv=document.getElementById('checkboxdiv');
+        checkboxdiv.innerHTML=''
+
+        let html;
+        if(selection=='Upinashads'){
+            html='<input type="checkbox" name="sem" value="sem">sem'
+            + '<input type="checkbox" name="upa"  value="Brihadarankya">Brihadarankya'
+             + '<input type="checkbox" name="upa"  value="Chandogya">Chandogya'
+             + '<input type="checkbox" name="upa"  value="Mandukya">Mandukya';
+        }
+        else if (selection=-'vedas'){
+            html= '<input type="checkbox" name="ved"  value="Rig">Rig'
+                    + '<input type="checkbox" name="ved" value="Yajur">Yajur'
+                    + '<input type="checkbox" name="ved" value="Adarvana">Adarvana'
+                    + '<input type="checkbox" name="ved" value="Sama">Sama';
+        }
+        else{
+            html='<label style="color;red";>*select valid option </label>'
+        }
+        checkboxdiv.innerHTML=html
+    }
+    function getcheckboxvalue(){
+        let selection=document.querySelectorAll('input:checked')
+        let checkboxdiv=document.getElementById('checkboxdiv');
+        checkboxdiv.innerHTML=''
+
+        for(let sel of selection)
+            checkboxdiv.innerHTML+='' + sel.value
+    }
+</script>
+<body>
+    
+</body>
+</html>`

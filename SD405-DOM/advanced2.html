@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .dark{
+        background-color: black;
+        color:white;
+    }
+    .light{
+        background-color: yellow;
+        color:red
+    }
+</style>
+<script>
+  function  toggleclass(){
+      let fruit=document.querySelector('select[name="theme"]')
+      let mypara=document.querySelector("p")
+
+      mypara.classList.remove(fruit.value=="dark" ? "light" : "dark") 
+      mypara.classList.add(fruit.value=="dark" ? "dark" : "light") 
+    
+    }
+</script>
+<body>
+    <select name="theme">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+    </select>
+    <p>Banana are yellow in color</p>
+    <input type="button" onclick="toggleclass()" value="submit"/>
+    
+</body>
+</html>

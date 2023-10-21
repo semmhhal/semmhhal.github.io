@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function appendText(num){
+            let myText = document.querySelector('textarea');
+            myText.value = myText.value + num;
+        }
+
+        function execute(){
+            let myTextAreaValue = document.querySelector('textarea').value;
+            let lhs,rhs,op;
+            for(let i =0;i<myTextAreaValue.length;i++){
+                if(i==0)
+                    lhs = parseInt(myTextAreaValue[0]);
+                else if(myTextAreaValue[i]=='+'|| myTextAreaValue[i]=='-'){
+                    op = myTextAreaValue[i];
+                }else{
+                    rhs =parseInt(myTextAreaValue[i]);
+                }
+            }
+            let result = op=='+'?lhs+rhs: lhs-rhs;
+            document.querySelector('textarea').value = result;
+            
+        }
+    </script>
+</head>
+<body>
+    <textarea></textarea>
+    <div>
+        <button onclick="appendText(1)">1</button>
+        <button onclick="appendText(2)">2</button>
+        <button onclick="appendText(3)">3</button>
+        <button onclick="appendText('+')">+</button>
+        <button onclick="appendText('-')">-</button>
+
+        <button onclick ='execute()'>Go</button>
+    </div>
+</body>
+</html>
