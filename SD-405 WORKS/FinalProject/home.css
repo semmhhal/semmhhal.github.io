@@ -1,0 +1,610 @@
+/* Navigation css */
+
+.imgclass {
+    display: flex;
+    max-width: 100%;
+    justify-content: space-evenly;
+
+}
+
+.NavoverallContainer {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.navcontainer {
+    display: grid;
+    grid-template-columns: 10% 55% 30%;
+    width: 100%;
+    max-height: 1%;
+    justify-content: space-between;
+
+}
+
+.searchimg{
+    min-width: 30px;
+    max-height: 30px;
+    object-fit: cover;
+    bottom: 0%;
+    border: none;
+}
+
+.heartimg {
+    min-width: 50px;
+    max-height: 50px;
+    object-fit: cover;
+}
+
+.cartimg {
+    min-width: 50px;
+    max-height: 50px;
+    object-fit: cover;
+}
+
+.topnav {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    min-height: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: large;
+    font-weight: 900;
+    font-family: cursive;
+    background-color: black;
+    color: white;
+}
+
+.LinkStyle {
+    text-decoration: none;
+    font-size: large;
+    color: black;
+}
+
+.LinkStyle:active {
+    text-decoration: none;
+    font-size: large;
+    color: rgb(252, 2, 2);
+    border: 2px solid black;
+}
+
+.LinkStyle:hover {
+    color: chocolate;
+    font-size: larger;
+}
+
+.lowernav {
+    /*border: 1px solid black;*/
+    text-align: center;
+    width: 100%;
+    font-weight: bolder;
+    font-family: cursive;
+   /* background-color: rgb(193, 196, 199);*/
+}
+
+.logoContainer {
+    display: inline-block;
+}
+
+.logoContainer:hover {
+    background-color: rgb(243, 146, 27);
+}
+
+.CatagoryNav {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: cursive;
+    font-size: large;
+    font-weight: bold;
+    margin-top: 1%;
+}
+.SearchBarDiv{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+.SearchButton{
+    height: 38px;
+    background-color: black;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: none;
+}
+.SearchButton:hover{
+    background-color: #888888;
+
+}
+.searchbar{
+    border-radius: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    max-height: 70%;
+    width: 70%;
+    background-color: rgb(234, 236, 238);
+}
+
+.navbuttons {
+    border: none;
+}
+
+.navbuttons:hover {
+    background-color: grey;
+}
+
+
+/* body css*/
+#kidsDiv{
+    display: none;
+}
+#MembersOnlyDiv{
+    display: none;
+}
+#MenDiv{
+    display: none;
+}
+#SaleDiv{
+    display: none;
+}
+#WomenDiv{
+    display: none;
+}
+#GameStartandStop{
+ 
+    border: none;
+    background-color: transparent;
+    font-family: cursive;
+    color:rgb(0, 254, 51)
+}
+#GameStartandStop:hover{
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(255, 0, 0, 0.3);
+    font-family: cursive;
+    color: yellow;
+    font-size: larger;
+}
+#GameStartandStop:active{
+    border: none;
+    border-radius: 10px;
+    background-color: yellow;
+    font-family: cursive;
+    color: red;
+    font-size: small;
+}
+#gameMessage{
+    /* P style for game*/
+    display: block;
+    font-size: x-large;
+    font-weight: 900;
+    font-family: cursive;
+}
+
+.combineDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.OverallContainer {
+    display: grid;
+    font-family: cursive;
+}
+
+.ContentContainerContainer {
+    display: grid;
+    max-width: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+    overflow: hidden;
+    margin-top: 2%;
+    margin-bottom: 1%;
+
+}
+
+.PicChange {
+    border-radius: 20px;
+    font-size: x-small;
+    background-color: transparent;
+    color: rgb(0, 8, 249);
+    font-weight: bolder;
+    border: none;
+}
+.PicChangeN {
+    border-radius: 20px;
+    font-size: x-small;
+    background-color: transparent;
+    color: rgb(0, 8, 249);
+    font-weight: bolder;
+    border: none;
+}
+
+.PicChangeDiv {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.PicChange:hover {
+    border-radius: 20px;
+    font-size: medium;
+    font-weight: bolder;
+    background-color: rgb(6, 14, 240, 0.3);
+    color: rgb(255, 0, 0);
+    border: none;
+}
+
+.PicChangeN:hover {
+    border-radius: 20px;
+    font-size: medium;
+    font-weight: bolder;
+    background-color: rgb(6, 14, 240, 0.3);
+    color: rgb(255, 0, 0);
+    border: none;
+}
+.PicChange:active {
+    border-radius: 20px;
+    font-size: smaller;
+    background-color: transparent;
+    color: rgb(199, 254, 0);
+    border: none;
+}
+.PicChangeN:active {
+    border-radius: 20px;
+    font-size: smaller;
+    background-color: transparent;
+    color: rgb(199, 254, 0);
+    border: none;
+}
+.PicChange:checked {
+    border-radius: 20px;
+    font-size: smaller;
+    background-color: transparent;
+    color: rgb(0, 254, 51);
+    border: none;
+}
+.PicChangeN:checked {
+    border-radius: 20px;
+    font-size: smaller;
+    background-color: transparent;
+    color: rgb(0, 254, 51);
+    border: none;
+}
+
+.ContentContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-evenly;
+    width: 98%;
+    height: 98%;
+    column-gap: 20%;
+    row-gap: 5%;
+    margin-bottom: 4%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+
+}
+
+.ContentContainer::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+.ContentContainer::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+.ContentContainer::-webkit-scrollbar-thumb {
+    background: rgb(183, 184, 231);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.ContentContainer::-webkit-scrollbar-thumb:hover {
+    background: #407dc4;
+}
+
+.AddToChartbutton {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: small;
+    border-radius: 20px;
+    padding: 5%;
+}
+
+.AddToChartbutton:hover {
+    background-color: blue;
+    color: white;
+    font-weight: bolder;
+    font-size: medium;
+}
+
+.contentImg {
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 10px;
+    object-fit: scale-down;
+
+}
+
+
+.InsideContentDiv {
+    display: block;
+    text-align: center;
+}
+
+
+/* footer css */
+
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    background-color: black;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.Innerfooter {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 30% 30% 15%;
+    justify-content: space-evenly;
+
+}
+
+.SignupFooter {
+    color: white;
+    font-family: cursive;
+}
+
+.FooterSearchBar {
+    display: flex;
+    flex-direction: row;
+    height: 15%;
+}
+
+.footerimages {
+    display: flex;
+    gap: 10%;
+    flex-direction: row;
+
+}
+
+.footerSocailImg {
+    margin-top: 20%;
+    width: 30%;
+    height: 50%;
+}
+
+.footerSocailImg:hover {
+    margin-top: 20%;
+    width: 50%;
+    height: 60%;
+}
+
+.customerSupport {
+    font-family: cursive;
+    color: white;
+}
+
+.customer2columns {
+    font-family: cursive;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.customerfirstcolumns {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.AboutUs {
+    color: white;
+    display: grid;
+    font-family: cursive;
+}
+
+/*scroll style*/
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  /*slider part*/
+.divSlider{
+    display: show;
+
+}
+.con{
+    
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+  }
+  .SliderContainer{
+    display: grid;
+    max-width: 95%;
+    justify-content: center;
+    
+  }
+  .imagecoll {
+    justify-content: space-around;
+    display: flex;
+    overflow-x: scroll;
+    gap: 8%;
+    padding-left: 50%;
+  }
+  .textbox1{
+    display:flex;
+    justify-content: center;
+  }
+
+  .topheader{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 8%;
+    font-size:xxx-large;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+    width:100%;
+  }
+  .firsttextline{
+   max-width:100%;
+    text-align: center;
+    
+    font-size: x-large;
+    
+  }
+
+  .ParaContainer{
+    width:45%;
+    text-align: center;
+  }
+  .secondtextline{
+    font-size: x-large;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .thirdtextline{
+    font-size: x-large;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .OneImageContainer{
+    display:flex;
+    justify-content: center;
+    margin-top: 3%;
+  }
+  .LargeImageContained{
+    display:flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .textbox2{
+    display:flex;
+    justify-content: center;
+  }
+  .Para2Container{
+    width:45%;
+    text-align: center;
+  }
+  .top2header{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 8%;
+    font-size:xxx-large;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+    width:100%;
+  }
+
+.Para2TextLine{
+    font-size: xx-large;
+   
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+@media screen and(max-width:640px){
+    .navcontainer{
+        position:relative;
+        text-align: center;
+        flex-direction: column;
+        display: flex;
+        max-width: 200%;
+    }
+
+    .CatagoryNav{
+        display: flex;
+        flex-direction: column;
+        max-width: 125%;
+    }
+    .logoContainer{
+       float:left;
+        flex-direction: column;
+        max-width: 100%;
+    }
+    .imgclass{
+        display: flex;
+        flex-direction: column;
+        max-width: 150%;
+    }
+  
+  }
+
+  
+@media only screen and (max-width: 562px) {
+    .topnav {
+      padding: 1px;
+    }
+  
+    .navcontainer {
+      flex-direction: column;
+      text-align: center;
+    }
+    .logoContainer{
+      margin-left: 40px;
+    }
+    .CatagoryNav {
+      flex-direction: column;
+      margin-top: 70%;
+      gap:10%
+    }
+  
+    .imgclass {
+      flex-direction: column;
+      margin-top: 50%; 
+    }
+    .lowernav{
+      margin-top: 20%;
+    }
+    .imagecoll {
+      flex-direction: column;
+    }
+  
+    .imagecoll img {
+      margin-right: 0;
+      margin-bottom: 10px;
+      width:200px;
+    }
+  
+  .LargeImageContained img{
+    flex-direction: column;
+    margin-right: 0;
+    margin-bottom: 10px;
+    width:200px;
+  
+  }
+  .top2header{
+    font-size: x-large;
+  }
+  .Innerfooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.ContentContainer{
+display: flex;
+flex-direction: column;
+overflow-y: scroll;
+}
+  }

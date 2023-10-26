@@ -1,0 +1,145 @@
+/*sign up page css */
+
+html,body{
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(background.jpeg);
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em black;
+    text-decoration-color: red;
+}
+
+.text1{
+    margin-top: 5%;
+    text-align: center;
+    margin-bottom: 5%;
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px;
+    font-size: x-small;
+}
+
+.divOne { 
+
+    border-radius: 20px;
+    text-align: center;
+
+    max-width: 60%;
+    padding: 5px;
+    margin: 0 auto;
+    background: rgb(0, 0, 0, 0.3);
+    color: rgb(245, 245, 245);
+    overflow: hidden;
+}
+
+.divTwo {
+    display: grid;
+    font-size: larger;
+   
+}
+
+.loginInputBox {
+    height: 150%;
+    width: 100%;
+    border-radius: 20px;
+    text-align: center;
+
+}
+
+.divThree {
+  font-size: large;
+  margin-bottom: 5%;
+    
+}
+
+.divFour {
+    display: grid;
+    grid-template-columns: 35% 60%;
+    justify-content: space-between;
+    
+    text-align: center;
+    gap: 3%;
+    padding: 3%;
+   
+    
+}
+
+.buttonStyle{
+    width: 40%;
+    height: 100%;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    background-color: rgb(0, 195, 255, 0.6);
+    border-radius: 10px;
+    border-color:  rgb(0, 195, 255, 0.6);
+}
+
+.containerFlex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 100%;
+    max-height: fit-content;  
+}
+#text2{
+    border:1px;
+    padding:10px;
+    font-size: medium;
+    font-weight: bolder;
+}
+
+
+/*Home page css*/
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    display: flex;
+    flex-direction: column;
+ 
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
