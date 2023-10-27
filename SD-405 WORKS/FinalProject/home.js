@@ -75,7 +75,7 @@ function NextPicture() {
     }
 
 }
-let chart = []
+
 function AddToCart() {
 
     let ChartElements = document.querySelectorAll('.AddToChartbutton');
@@ -89,9 +89,9 @@ function AddToCart() {
 
             let imgElement = divElement.previousElementSibling;
 
-            chart.push(imgElement.previousElementSibling.name)
+            let chart = imgElement.previousElementSibling.name;
            
-            console.log(chart)
+            localStorage.setItem(chart,chart)
         })
     }
 
@@ -240,3 +240,10 @@ function playGame() {
     requestAnimationFrame(loop);
    }
 
+function DisplayCart(){
+    window.location.href = "chart.html"
+}
+
+function buyNowF(){
+    alert('Your Items will be shipped! /n No need to enter address and payment type we alrady stole all your information LOL')
+}

@@ -608,3 +608,42 @@ flex-direction: column;
 overflow-y: scroll;
 }
   }
+
+.BuyButtonStyle{
+    margin-top: 5%;
+    margin-left: 35%;
+    border-radius: 20PX;
+    width: 30%;
+    font-size: x-large;
+    font-weight: 900;
+    background-color: red;
+    border: none;
+}
+
+.BuyButtonStyle:hover{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 35%;
+    border-radius: 20PX;
+    width: 30%;
+    height:60%;
+    color:red;
+    font-size: xx-large;
+    font-weight: 900;
+    background-color: green;
+    border: none;
+}
+
+.BuyButtonStyle:active{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 35%;
+    border-radius: 20PX;
+   
+   
+    color:black;
+    font-size: medium;
+    font-weight: 600;
+    background-color: yellow;
+    border: none;
+}
