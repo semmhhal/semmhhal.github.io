@@ -11,7 +11,7 @@
         "*.ts",
         "./src/*.ts",
         "./test/*.ts"
-, "test/checkPrime.aats"    ],
+, "test/d13tests.ts"    ],
     "ts-node": {
         "esm": true, // «———— enable ESM for ts-node
     },
