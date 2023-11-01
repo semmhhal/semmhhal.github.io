@@ -1,0 +1,16 @@
+{
+    "type": "module",
+    "scripts": {
+        "app": "ts-node ./src/app.ts"
+    },
+    "devDependencies": {
+        "@types/node": "^20.8.10",
+        "@types/prompt-sync": "^4.2.2",
+        "@types/readline-sync": "^1.4.6",
+        "prompt-sync": "^4.2.0",
+        "ts-node": "^10.9.1"
+    },
+    "dependencies": {
+        "readline-sync": "^1.4.10"
+    }
+}
