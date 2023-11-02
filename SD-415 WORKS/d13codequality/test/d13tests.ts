@@ -117,6 +117,6 @@ describe('convertTemp function', () => {
 describe('calcDis function', () => {
   it('should calculate the distance between two coordinates', () => {
     const result = calcDis(23, 29, 43, 90);
-    assert.approximately(63.126, 0.001,result); // Approximate value based on your example
+    assert.approximately(63.126, 0.001,result); // Approximate value 
   });
 });
