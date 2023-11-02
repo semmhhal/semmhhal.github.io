@@ -102,7 +102,7 @@ describe('DownPayment', function () {
 
 describe('calcSum', () => {
     it('calculates the sum of digits for a given number', () => {
-        const result = calcSum(1245, 0, 0);
+        const result = calcSum(1245);
         assert.equal(result, 12);
     });
 });
