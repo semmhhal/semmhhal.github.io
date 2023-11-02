@@ -4,7 +4,7 @@ import { isVowel } from "../src/vowel.js"
 import {  computeSalesCommission, compoundInterest } from "../src/sales.js"
 import { DownPayment } from '../src/downpayment.js';
 import { calcSum } from '../src/calcSum.js';
-import { calcMul } from "../src/calcMul.js";
+import { calcMultiplication } from "../src/calcMul.js";
 import { convertTemp } from "../src/Temp.js";
 import { calcDis } from '../src/calcDis.js';
 
@@ -98,9 +98,9 @@ describe('calcSum', () => {
   });
 });
 
-describe('calcMul', () => {
+describe('calcMultiplication', () => {
     it('calculates the multiplication of digits for a given number', () => {
-      const result = calcMul(123, 0, 0);
+      const result = calcMultiplication(123, 0, 0);
       assert.equal(result, 6);
     });
   });
@@ -110,7 +110,7 @@ describe('calcMul', () => {
 describe('convertTemp function', () => {
   it('should convert Fahrenheit temperature to Celsius', () => {
     const result = convertTemp(32);
-    assert.approximately(0.001,0, result); 
+    assert.equal(0, result); 
   });
 });
 
