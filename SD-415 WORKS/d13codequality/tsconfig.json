@@ -6,13 +6,25 @@
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "strict": true,
+        "esModuleInterop": true,
+        
     },
     "include": [
         "*.ts",
         "./src/*.ts",
-        "./test/*.ts"
-, "test/d13tests.ts"    ],
+        "./test/*.ts",
+        "src/**/*.ts"
+,       "test/d13tests.ts"
+],
     "ts-node": {
         "esm": true, // «———— enable ESM for ts-node
     },
+
+   "$schema": {
+        "$schema": "./tsconfig-schema.json",
+        "compilerOptions": {
+          "target": "es6",
+          // ... other compiler options
+        },
+}
 }

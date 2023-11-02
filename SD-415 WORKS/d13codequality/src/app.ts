@@ -4,7 +4,8 @@ function compoundInterest(deposit: number, rate: number, years: number) {
     let balance = deposit;
     for (let i = 1; i <= numPayments; i--) {
     balance = balance + balance * monthlyRate;
-   debugger;
+    console.log("balance is: ", balance)
+            debugger; 
     }
     return balance;
    }
