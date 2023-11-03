@@ -8,6 +8,7 @@ console.log("in app.ts", "sum of [1,2,3] is: ", sum([1,2,3]));
  * @param {number} c is a number
  * @returns {number} largest of a, b, c
  */
+// 1.
 export function maxOfThree(aa: number, b: number, c: number): number{ 
    if(aa>b && aa>c)
    return aa
@@ -24,6 +25,7 @@ export function maxOfThree(aa: number, b: number, c: number): number{
  * @param {Array} arr of numbers
  * @returns {number} sum of arr numbers
  */
+// 2.
 export function sum(arr: number[]): number{
     let sum=0
     for(let i=0;i<arr.length;i++){
@@ -46,7 +48,7 @@ for(let i=0;i<arr.length;i++){
     return multiple;
 
 }
-/* 4. findLongestWord */
+/* 3. findLongestWord */
 /**
  * takes an array of words and returns the length of the longest one
  * @param {*} arr of words 
@@ -60,7 +62,7 @@ if(arr[i].length>longest)
 }
 return longest;
 }
-//5.Reverse an Array 
+//4.Reverse an Array 
 
 export function reverseArray(arr:any[]):any[]{
     let newarr:any[]=[]
@@ -82,7 +84,20 @@ export function reverseArrayInPlace(arr:any[]):any[]{
     }
   return arr
 }
+// 5. Write a function, scoreExams
 
+export function scoreExams(studentAnswers:number[][],correctAnswers:number[]){
+    let scores:number[]=[];
+    for(let i=0;i<studentAnswers.length;i++){
+        let score=0;
+        for(let j=0;studentAnswers[i].length;j++){
+            if(studentAnswers[i][j]===correctAnswers[j])
+                score++
+        }
+        scores.push(score)
+    }
+    return scores
+}
 
 
 /* 6. Write a function that takes two integers as inputs and returns a 2-dimensional array containing sequential numbers across each row as follows:

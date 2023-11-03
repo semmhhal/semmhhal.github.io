@@ -1,7 +1,7 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
 //import { assert } from "chai";
 //import {maxOfThree, sum, multiply, findLongestWord, reverseArray, reverseArrayInPlace, scoreExams, generateArray} from "./arrays.js";
-import { maxOfThree, sum, multiply, findLongestWord, generateArray, reverseArray, reverseArrayInPlace } from "../src/app.js";
+import { maxOfThree, sum, multiply, findLongestWord, generateArray, reverseArray, reverseArrayInPlace, scoreExams } from "../src/app.js";
 /* 1.	1.	Define a function maxOfThree() that takes three numbers as
 arguments and returns the largest of them.  */
 describe("maxOfThree", function () {
@@ -111,19 +111,19 @@ describe("reverseArray", function () {
 // const correctAnswers = [3, 1, 2];
 // scoreExams(studentAnswers, correctAnswers)); --> [2, 2, 2]
 // */
-// describe("score exam", function () {
-//     const studentAnswers = [[1, 1, 2,4], [2, 1, 2,2], [3, 1, 3,4]];
-//     const correctAnswers = [3, 1, 2,4];
-//     it("exam with 3 students", function () {
-//         assert.deepEqual(scoreExams(studentAnswers, correctAnswers), [3,2,3]);
-//     });
-//     it("exam with 3 students: one student has all incorrect answers", function () {
-//         assert.deepEqual(scoreExams( [[1, 1, 2,4], [2, 1, 2,2], [1,2, 3,1]], correctAnswers), [3,2,0]);
-//     });
-//     it("exam with 3 students: one student has all correct answers", function () {
-//         assert.deepEqual(scoreExams( [[1, 1, 2,4], [2, 1, 2,2],[3, 1, 2,4]], correctAnswers), [3,2,4]);
-//     });
-// });
+describe("scoreExams", function () {
+    const studentAnswers = [[1, 1, 2, 4], [2, 1, 2, 2], [3, 1, 3, 4]];
+    const correctAnswers = [3, 1, 2, 4];
+    it("exam with 3 students", function () {
+        assert.deepEqual(scoreExams(studentAnswers, correctAnswers), [3, 2, 3]);
+    });
+    it("exam with 3 students: one student has all incorrect answers", function () {
+        assert.deepEqual(scoreExams([[1, 1, 2, 4], [2, 1, 2, 2], [1, 2, 3, 1]], correctAnswers), [3, 2, 0]);
+    });
+    it("exam with 3 students: one student has all correct answers", function () {
+        assert.deepEqual(scoreExams([[1, 1, 2, 4], [2, 1, 2, 2], [3, 1, 2, 4]], correctAnswers), [3, 2, 4]);
+    });
+});
 /* 6. Write a function that takes two integers as inputs and returns a 2-dimensional array containing sequential numbers across each row as follows: */
 describe("generate array", function () {
     const expected33 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
