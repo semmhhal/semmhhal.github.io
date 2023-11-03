@@ -90,7 +90,7 @@ export function scoreExams(studentAnswers:number[][],correctAnswers:number[]){
     let scores:number[]=[];
     for(let i=0;i<studentAnswers.length;i++){
         let score=0;
-        for(let j=0;studentAnswers[i].length;j++){
+        for(let j=0;j<studentAnswers[i].length;j++){
             if(studentAnswers[i][j]===correctAnswers[j])
                 score++
         }
