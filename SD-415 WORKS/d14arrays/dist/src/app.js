@@ -80,9 +80,10 @@ export function scoreExams(studentAnswers, correctAnswers) {
     let scores = [];
     for (let i = 0; i < studentAnswers.length; i++) {
         let score = 0;
-        for (let j = 0; studentAnswers[i].length; j++) {
-            if (studentAnswers[i][j] === correctAnswers[j])
+        for (let j = 0; j < studentAnswers[i].length; j++) {
+            if (studentAnswers[i][j] === correctAnswers[j]) {
                 score++;
+            }
         }
         scores.push(score);
     }

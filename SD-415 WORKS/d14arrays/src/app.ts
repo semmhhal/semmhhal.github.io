@@ -86,17 +86,22 @@ export function reverseArrayInPlace(arr:any[]):any[]{
 }
 // 5. Write a function, scoreExams
 
-export function scoreExams(studentAnswers:number[][],correctAnswers:number[]){
-    let scores:number[]=[];
-    for(let i=0;i<studentAnswers.length;i++){
-        let score=0;
-        for(let j=0;j<studentAnswers[i].length;j++){
-            if(studentAnswers[i][j]===correctAnswers[j])
-                score++
+export function scoreExams(studentAnswers: number[][], correctAnswers: number[]):number[] {
+    let scores: number[] = [];
+
+    for (let i = 0; i < studentAnswers.length; i++) {
+        let score = 0;
+
+        for (let j = 0; j < studentAnswers[i].length; j++) {
+            if (studentAnswers[i][j] === correctAnswers[j]) {
+                score++;
+            }
         }
-        scores.push(score)
+
+        scores.push(score);
     }
-    return scores
+
+    return scores;
 }
 
 
