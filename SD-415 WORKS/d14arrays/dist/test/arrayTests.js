@@ -1,10 +1,8 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-import { assert } from "chai"
-
+// import { assert } from "chai";
 //import {maxOfThree, sum, multiply, findLongestWord, reverseArray, reverseArrayInPlace, scoreExams, generateArray} from "./arrays.js";
-import {maxOfThree, sum, multiply, findLongestWord, generateArray, reverseArray,reverseArrayInPlace} from "../src/app.js";
-     
-/* 1.	1.	Define a function maxOfThree() that takes three numbers as 
+import { maxOfThree, sum, multiply, findLongestWord, generateArray, reverseArray, reverseArrayInPlace } from "../src/app.js";
+/* 1.	1.	Define a function maxOfThree() that takes three numbers as
 arguments and returns the largest of them.  */
 describe("maxOfThree", function () {
     it("tests 1 2 3", function () {
@@ -16,8 +14,8 @@ describe("maxOfThree", function () {
     it("tests 2 1 3", function () {
         assert.strictEqual(maxOfThree(2, 1, 3), 3);
     });
-    it("sem added this tests 40 65 90",function(){
-        assert.strictEqual(maxOfThree(40,65,90),90);
+    it("sem added this tests 40 65 90", function () {
+        assert.strictEqual(maxOfThree(40, 65, 90), 90);
     });
     it("tests 2 3 1", function () {
         assert.strictEqual(maxOfThree(22, 33, 11), 33);
@@ -44,10 +42,9 @@ describe("maxOfThree", function () {
         assert.strictEqual(maxOfThree(6, 6, 6), 6);
     });
 });
-
 /*
 2.	Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10,
- and multiply([1,2,3,4]) should return 24. 
+ and multiply([1,2,3,4]) should return 24.
  */
 describe("sum and multiply", function () {
     it("tests sum of 1 2 3 and 1 2 3 4", function () {
@@ -59,13 +56,11 @@ describe("sum and multiply", function () {
         assert.strictEqual(multiply([1, 2, 3, 4]), 24);
     });
 });
-
-
 /*
-3.	Write a function findLongestWord() that takes an array of words and returns the length of the longest one. 
+3.	Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
 */
 describe("findLongestWord", function () {
-    const arraySendToFunction = ["this", "is", "a", "test", "longest"]
+    const arraySendToFunction = ["this", "is", "a", "test", "longest"];
     it("tests longest", function () {
         assert.strictEqual(findLongestWord(arraySendToFunction), 7);
     });
@@ -79,8 +74,6 @@ describe("findLongestWord", function () {
         assert.strictEqual(findLongestWord(["this", "is", "this", "is", "is"]), 4);
     });
 });
-
-
 // /*
 // 4.	Reverse an Array 
 // Arrays have a reverse method that changes the array by inverting the order in which its elements appear. For this exercise, write two functions, reverseArray and 
@@ -95,7 +88,7 @@ describe("reverseArray", function () {
     });
     it("tests reverse even number elements", function () {
         assert.deepEqual(reverseArrayInPlace(["A", "B", "C", "D"]), ["D", "C", "B", "A"]);
-      });
+    });
     it("tests reverse in place even number elements", function () {
         assert.deepEqual(reverseArray(["A", "B", "C", "D"]), ["D", "C", "B", "A"]);
     });
@@ -110,17 +103,14 @@ describe("reverseArray", function () {
         assert.strictEqual(reverseArrayInPlace(testArr), testArr); //element order may be different, but it is the same reference
     });
 });
-
 // /*
 // 5.  Write a function, scoreExams, that takes an array of arrays of student answers and an array of the correct answers.  
 // It should compare each student’s answers against the correct answers and return an array holding the scores of each student.  The score 
 // for each student is a count of the number of correct answers (i.e., matches with the key of correct answers).  For example
-
 // const studentAnswers = [[1, 1, 2], [2, 1, 2], [3, 1, 3]];
 // const correctAnswers = [3, 1, 2];
 // scoreExams(studentAnswers, correctAnswers)); --> [2, 2, 2]
 // */
-
 // describe("score exam", function () {
 //     const studentAnswers = [[1, 1, 2,4], [2, 1, 2,2], [3, 1, 3,4]];
 //     const correctAnswers = [3, 1, 2,4];
@@ -134,17 +124,16 @@ describe("reverseArray", function () {
 //         assert.deepEqual(scoreExams( [[1, 1, 2,4], [2, 1, 2,2],[3, 1, 2,4]], correctAnswers), [3,2,4]);
 //     });
 // });
-
 /* 6. Write a function that takes two integers as inputs and returns a 2-dimensional array containing sequential numbers across each row as follows: */
 describe("generate array", function () {
-    const expected33 = [ [1, 2, 3], [4, 5, 6], [7, 8, 9]];
-    const expected23 = [ [1, 2, 3], [4, 5, 6]];
-    const expected21 = [ [1], [2]];
+    const expected33 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+    const expected23 = [[1, 2, 3], [4, 5, 6]];
+    const expected21 = [[1], [2]];
     it("expected33", function () {
-        assert.deepEqual(generateArray(3,3), expected33);
+        assert.deepEqual(generateArray(3, 3), expected33);
     });
     it("expected23", function () {
-        assert.deepEqual(generateArray(2,3), expected23);
+        assert.deepEqual(generateArray(2, 3), expected23);
     });
     it("expected21", function () {
         assert.deepEqual(generateArray(2, 1), expected21);
