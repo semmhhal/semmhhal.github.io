@@ -43,12 +43,12 @@
 
    function Compound(years:number,annInterest:number,InitalAMT:number){
    
-   let balance:number=InitialAMT
    
    let monthlyrate:number=(annInterest/100)/12;
     let CompYears:number=years*12
    
    for(let i=0;i<CompYears;i++){
+    let balance:number=InitialAMT
        let interest:number=balance*monthlyrate
        InitialAMT=balance+interest
        
