@@ -49,8 +49,8 @@
    
    for(let i=0;i<CompYears;i++){
     let balance:number=InitialAMT
-       let interest:number=balance*monthlyrate
-       InitialAMT=balance+interest
+     let interest:number=balance*monthlyrate
+    InitialAMT=balance+interest
        
    }
    return InitialAMT
