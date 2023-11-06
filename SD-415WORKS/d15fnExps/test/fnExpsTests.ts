@@ -46,14 +46,14 @@ describe("times100", function () {
 describe("myMap", function () {
     const testArray = [-10, 0, 10, 20];
 
-    it("tests myMap on triples anonymous function", function () {
+    it("tests myMap on triples anonymous function", function ():void {
         assert.deepStrictEqual(myMap(testArray, function (ele: number) {
             return ele * 3;
         }), [-30, 0, 30, 60]);
     });
 
-    it("tests myMap on triples arrow function", function () {
-        assert.deepStrictEqual(myMap(testArray, (ele: number) => ele * 3), [-30, 0, 30, 60]);
+    it("tests myMap on triples arrow function", function ():void {
+        assert.deepStrictEqual(myMap(testArray, (ele: number):number => ele * 3), [-30, 0, 30, 60]);
     });
 });
 
