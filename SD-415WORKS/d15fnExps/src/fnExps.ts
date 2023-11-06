@@ -18,7 +18,7 @@ export function times100(num:number):number{
 /**
  * @returns {Array} creates a new array with function mapped to each element
  */
-export function myMap(arr:number[], callback:any):Object[] {
+export function myMap(arr:number[], callback:(num:number)=>number):number[] {
   const result = [];
     for (const ele of arr) {
         result.push(callback(ele));
