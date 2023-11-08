@@ -75,5 +75,30 @@ export function createBook(title1, author1, libraryID1) {
 // * /@returns{undefined}
 //
 export function scramble() {
-    console.log("implement this if you have time....");
+    const titles = findTitles();
+    let newstr = "";
+    for (let words of titles) {
+        newstr += words + " ";
+    }
+    console.log(newstr);
+    let texts = newstr.split(' ');
+    texts.sort(function (a, b) {
+        return b.length - a.length;
+    });
+    var sortedSentence = texts.join(" ");
+    console.log(sortedSentence);
+    let textArea = document.getElementById("displayArea");
+    if (textArea) {
+        textArea.innerHTML = sortedSentence;
+    }
 }
+// const str = 'The quick brown fox jumps over the lazy dog.';
+// const words = str.split(' ');
+// console.log(words[3]);
+// // Expected output: "fox"
+// const chars = str.split('');
+// console.log(chars[8]);
+// // Expected output: "k"
+// const strCopy = str.split();
+// console.log(strCopy);
+// // Expected output: Array ["The quick brown fox jumps over the lazy dog."]
