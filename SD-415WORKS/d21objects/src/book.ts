@@ -94,5 +94,28 @@ return newbook
 
 //
 export function scramble():void{
-console.log("implement this if you have time....")
+
+const titles = findTitles();
+let newstr: string=""
+
+for(let words of titles){
+    newstr+=words+" "
 }
+console.log(newstr)
+let texts=newstr.split(' ')
+
+
+texts.sort(function(a, b) {
+    return b.length - a.length;
+  });
+  
+  var sortedSentence = texts.join(" ");
+
+
+
+
+    let textArea: HTMLInputElement | null = document.getElementById("displayArea") as HTMLInputElement | null;
+    if (textArea) { textArea.innerHTML = sortedSentence; }
+
+}
+
