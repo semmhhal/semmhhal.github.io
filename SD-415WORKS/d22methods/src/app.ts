@@ -43,7 +43,7 @@ const numbers: { [key: string]: number } = {
     two: 22,
     three: 333,
     four: 444,}
-   const propertyOrder = ["one", "four ", "three", "two", ];
+   const propertyOrder = ["one", "four", "three", "two" ];
    for(const property of propertyOrder){
    console.log(numbers[property])
    }
