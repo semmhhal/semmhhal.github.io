@@ -1,7 +1,7 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
 import { assert } from "chai"
 
-import { StudentQuiz, gradeStudent, gradeQuiz} from "../src/quiz.js";  //import all of the app.js functions used in the Mocha tests
+import { StudentQuiz, gradeStudent, gradeQuiz,gradeQuizLabeled} from "../src/quiz.js";  //import all of the app.js functions used in the Mocha tests
 
 
 describe("quiz tests", function () {
@@ -20,6 +20,7 @@ describe("quiz tests", function () {
         studentId: 103,
         quizAnswers: [3, 1, 3, 4]
     }
+
     student2;
     student3;
     const CORRECT_ANSWERS = [3, 1, 2, 4];
@@ -36,12 +37,12 @@ describe("quiz tests", function () {
     it("gradeQuiz -- grade for all students", function () {
         assert.deepEqual(gradeQuiz(studentQuizzes, CORRECT_ANSWERS), [3, 2, 3]);
     });
-});
-    // it("gradeQuizLabeled -- labeled objects grades for all students", function () {
-    //     assert.deepEqual(gradeQuizLabeled(studentQuizzes, CORRECT_ANSWERS), [
-    //         { id: 101, score: 3 },
-    //         { id: 102, score: 2 },
-    //         { id: 103, score: 3 }]);
-    // });
+    it("gradeQuizLabeled -- labeled objects grades for all students", function () {
+        assert.deepEqual(gradeQuizLabeled(studentQuizzes, CORRECT_ANSWERS), [
+            { id: 101, score: 3 },
+            { id: 102, score: 2 },
+            { id: 103, score: 3 }]);
+    });
 
 
+})

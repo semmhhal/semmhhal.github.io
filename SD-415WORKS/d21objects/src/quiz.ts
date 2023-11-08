@@ -33,28 +33,28 @@ export function gradeQuiz(studentQuizzes: StudentQuiz[], CORRECT_ANSWERS: number
     return newarr;
   }
 
-// export function gradeQuizLabeled(studentQuizzes: StudentQuiz[], CORRECT_ANSWERS: number[]): Object[]{
-//     interface StudentQ {
-//         studentId: number,
-//         quizAnswers: number
-//     }
-//     let newarr: StudentQ[] = [];
+export function gradeQuizLabeled(studentQuizzes: StudentQuiz[], CORRECT_ANSWERS: number[]): Object[]{
+    interface StudentQ {
+        id: number,
+        score: number
+    }
+    let newarr: StudentQ[] = [];
   
-//     for (let i = 0; i < studentQuizzes.length; i++) {
-//       let counter = 0;
-//       let scores1 = studentQuizzes[i].quizAnswers;
+    for (let i = 0; i < studentQuizzes.length; i++) {
+      let counter = 0;
+      let scores1 = studentQuizzes[i].quizAnswers;
   
-//       for (let j = 0; j < scores1.length; j++) {
-//         if (CORRECT_ANSWERS[j] === scores1[j]) {
-//           counter++;
-//         }
-//       }
+      for (let j = 0; j < scores1.length; j++) {
+        if (CORRECT_ANSWERS[j] === scores1[j]) {
+          counter++;
+        }
+      }
   
-//       newarr.push({ studentId: studentQuizzes[i].studentId, quizAnswers: counter });
-//     }
+      newarr.push({ id: studentQuizzes[i].studentId, score: counter });
+    }
   
-//     return newarr;
-//   }
+    return newarr;
+  }
 
 
 

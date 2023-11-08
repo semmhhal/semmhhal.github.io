@@ -32,33 +32,48 @@ export function showTitles() {
  */
 export function findTitles() {
     //fix this to work according to the specs
-    let titles = ["This is a test title", "Another test title", "And another test title for good measure"];
-    return titles;
+    let titles = library.map(Book => Book.title);
+    return titles.sort();
+}
+// * @returns {string[]} find all  authors in libraryBooks and return them in alphabetically ordered array.
+export function findAuthors() {
+    let authors = library.map(Book => Book.author);
+    return authors.sort();
 }
 /**
  * @returns {undefined} no return
  * Event handler for Add book button.  Creates and adds book to the library
  */
-export function addBook() {
-    console.log("finish the implementation -- get the author, create a book object, and add to the library array!!");
+// * @returns {number[]} find all the libraryIDs in libraryBooks and return them in an alphabetically ordered array.
+export function findIDs() {
+    let Ids = library.map(Book => Book.libraryID);
+    return Ids;
 }
-/**
- *
- * @returns {string[]} find all  authors in libraryBooks and return them in alphabetically ordered array.
- */
-// export function findAuthors(): string[] {
-//     //implement this
-// }
+export function addBook() {
+    let Input1 = document.getElementById("title");
+    // if (Input1) { Input1.innerHTML = Booktitle; }
+    let Input2 = document.getElementById("author");
+    if (Input1 && Input2) {
+        createBook(Input1.value, Input2.value, 123);
+    }
+}
 /**
  *
  * @returns {number[]} find all the libraryIDs in libraryBooks and return them in an alphabetically ordered array.
 */
-// export function findIDs(): number[] {
-//     //implement this
-// }
 /**
- * @returns {book} new book object
- * createBook, which will take title, author, and libraryID as inputs.  It will create a new book object and add it to the library,
-which will be represented as a global array named libraryBooks.  createBook should return the newly created book.
- */
-//  
+//  * @returns {book} new book object
+//  * createBook, which will take title, author, and libraryID as inputs.  It will create a new book object and add it to the library,
+// which will be represented as a global array named libraryBooks.  createBook should return the newly created book.
+//  */
+// //  
+export function createBook(title1, author1, libraryID1) {
+    let newbook = { title: title1, author: author1, libraryID: libraryID1 };
+    library.push(newbook);
+    return newbook;
+}
+// * /@returns{undefined}
+//
+export function scramble() {
+    console.log("implement this if you have time....");
+}

@@ -1,6 +1,6 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
 //import { assert } from "chai";
-import { gradeStudent, gradeQuiz } from "../src/quiz.js"; //import all of the app.js functions used in the Mocha tests
+import { gradeStudent, gradeQuiz, gradeQuizLabeled } from "../src/quiz.js"; //import all of the app.js functions used in the Mocha tests
 describe("quiz tests", function () {
     const student1 = {
         studentId: 101,
@@ -28,10 +28,11 @@ describe("quiz tests", function () {
     it("gradeQuiz -- grade for all students", function () {
         assert.deepEqual(gradeQuiz(studentQuizzes, CORRECT_ANSWERS), [3, 2, 3]);
     });
+    it("gradeQuizLabeled -- labeled objects grades for all students", function () {
+        assert.deepEqual(gradeQuizLabeled(studentQuizzes, CORRECT_ANSWERS), [
+            { id: 101, score: 3 },
+            { id: 102, score: 2 },
+            { id: 103, score: 3 }
+        ]);
+    });
 });
-// it("gradeQuizLabeled -- labeled objects grades for all students", function () {
-//     assert.deepEqual(gradeQuizLabeled(studentQuizzes, CORRECT_ANSWERS), [
-//         { id: 101, score: 3 },
-//         { id: 102, score: 2 },
-//         { id: 103, score: 3 }]);
-// });

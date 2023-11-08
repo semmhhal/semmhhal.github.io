@@ -21,21 +21,17 @@ export function gradeQuiz(studentQuizzes, CORRECT_ANSWERS) {
     }
     return newarr;
 }
-// export function gradeQuizLabeled(studentQuizzes: StudentQuiz[], CORRECT_ANSWERS: number[]): Object[]{
-//     interface StudentQ {
-//         studentId: number,
-//         quizAnswers: number
-//     }
-//     let newarr: StudentQ[] = [];
-//     for (let i = 0; i < studentQuizzes.length; i++) {
-//       let counter = 0;
-//       let scores1 = studentQuizzes[i].quizAnswers;
-//       for (let j = 0; j < scores1.length; j++) {
-//         if (CORRECT_ANSWERS[j] === scores1[j]) {
-//           counter++;
-//         }
-//       }
-//       newarr.push({ studentId: studentQuizzes[i].studentId, quizAnswers: counter });
-//     }
-//     return newarr;
-//   }
+export function gradeQuizLabeled(studentQuizzes, CORRECT_ANSWERS) {
+    let newarr = [];
+    for (let i = 0; i < studentQuizzes.length; i++) {
+        let counter = 0;
+        let scores1 = studentQuizzes[i].quizAnswers;
+        for (let j = 0; j < scores1.length; j++) {
+            if (CORRECT_ANSWERS[j] === scores1[j]) {
+                counter++;
+            }
+        }
+        newarr.push({ id: studentQuizzes[i].studentId, score: counter });
+    }
+    return newarr;
+}
