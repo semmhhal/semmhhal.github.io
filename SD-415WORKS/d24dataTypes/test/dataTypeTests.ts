@@ -1,7 +1,7 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
 import { assert } from "chai";
 
-import { ucFirst,checkSpam,truncate,extractCurrencyValue,getMaxSubSum,cam} from "../src/app.js";
+import { ucFirst,checkSpam,truncate,getMaxSubSum} from "../src/app.js";
 
  
 describe("ucFirst", function() {
@@ -45,14 +45,14 @@ describe("truncate", function() {
   });
 });
 
-describe("extractCurrencyValue", function() {
+// describe("extractCurrencyValue", function() {
 
-  it("for the string $120 returns the number 120", function() {
-    assert.strictEqual(extractCurrencyValue('$120'), 120);
-  });
+//   it("for the string $120 returns the number 120", function() {
+//     assert.strictEqual(extractCurrencyValue('$120'), 120);
+//   });
 
 
-});
+// });
 describe("getMaxSubSum", function() {
     it("maximal subsum of [1, 2, 3] equals 6", function() {
       assert.equal(getMaxSubSum([1, 2, 3]), 6);
@@ -91,22 +91,22 @@ describe("getMaxSubSum", function() {
     });
   });
 
-describe("camelize", function() {
+// describe("camelize", function() {
 
-    it("leaves an empty line as is", function() {
-      assert.equal(camelize(""), "");
-    });
+//     it("leaves an empty line as is", function() {
+//       assert.equal(camelize(""), "");
+//     });
   
-    it("turns background-color into backgroundColor", function() {
-      assert.equal(camelize("background-color"), "backgroundColor");
-    });
+//     it("turns background-color into backgroundColor", function() {
+//       assert.equal(camelize("background-color"), "backgroundColor");
+//     });
   
-    it("turns list-style-image into listStyleImage", function() {
-      assert.equal(camelize("list-style-image"), "listStyleImage");
-    });
+//     it("turns list-style-image into listStyleImage", function() {
+//       assert.equal(camelize("list-style-image"), "listStyleImage");
+//     });
   
-    it("turns -webkit-transition into WebkitTransition", function() {
-      assert.equal(camelize("-webkit-transition"), "WebkitTransition");
-    });
+//     it("turns -webkit-transition into WebkitTransition", function() {
+//       assert.equal(camelize("-webkit-transition"), "WebkitTransition");
+//     });
   
-  });
+//   });

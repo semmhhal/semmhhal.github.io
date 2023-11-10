@@ -42,21 +42,7 @@ export   function truncate(str:string, maxlength:number):string {
  
 //  */
 export function getMaxSubSum(arr:number[]):any{
-let maxnumber=0
-let sum=0
-  for(let i=0;i<arr.length;i++){
-    if(arr[i]>maxnumber){
-    maxnumber=arr[i]
-    return maxnumber
-  }
-  else if(arr[i]>0){
-    sum+=arr[i]
-    return sum
-  }
-  
-  }
-  
-
+  let listSums = [];v  
 }
 
 
