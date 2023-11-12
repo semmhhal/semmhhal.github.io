@@ -5,7 +5,7 @@ The function should not modify the array. It should return the new array.
 */
 export function filterRange(arr: number[], a: number, b: number): number[] {
 
-    return [];
+    return arr.filter(num=>num>=a || num<=b);
 }
 
 
@@ -22,10 +22,6 @@ type FullNameUser = {
 
 
 export function map2fullName(users: SurnameUser[]): FullNameUser[] {
-    let result: { fullName: string, id: number }[] = [];
-    // FURTHER IMPLEMENTATION REQUIRED HERE
-
-
-
-    return result;
+let newarr=users.map(user => ({fullName: `${user.name} ${user.surname}`,id: user.id}));
+ return newarr;
 }
