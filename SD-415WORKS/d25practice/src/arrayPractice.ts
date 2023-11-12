@@ -9,7 +9,7 @@ return arr.map(num => num * 2);
 }
 
 export function doubleAges(arr){
-
+return arr.map(num=>num.age/2)
 }
 
 export function filterEven(arr){
