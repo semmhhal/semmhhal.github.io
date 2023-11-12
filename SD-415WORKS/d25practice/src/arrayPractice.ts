@@ -4,13 +4,13 @@ export type Person = {
     age: number
 }
 
-export function doubleNums(arr){
+export function doubleNums(arr:number[]):number[]{
 return arr.map(num => num * 2);
 }
 
-export function doubleAges(arr){
-return arr.map(num=>num.age/2)
-}
+export function doubleAges(peopleArray: Person[]): Person[] {
+    return peopleArray.map(person => ({...person,age: person.age * 2 }));
+  }
 
 export function filterEven(arr){
 
