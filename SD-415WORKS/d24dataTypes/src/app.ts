@@ -38,28 +38,17 @@ export   function truncate(str:string, maxlength:number):string {
 // /**
 //  * 
 //  * @param {Array} arr of numbers
-//  * @returns {number} the total of the maximal subarray
- 
-//  */
-export function getMaxSubSum(arr:number[]):any{
-  let listSums = [];v  
+
+function compareNumeric(a:number,b:number):number{
+  const a1=a.toString()
+  const b1=b.toString()
+
+  if(a>b) return 1
+  if(a==b) return 0
+  if(a<b) return -1
+  return 0
+
 }
-
-
-export function camelize(str:string):string {
-let newstr=""
-if(str===newstr){
-  return newstr
-}
-else if(
-  for(let i=0;i<str.charAt(i).length;i++){
-    if(str.charAt(i)==="-")
-  }
-)
-  }
-
-
-export function extractCurrencyValue(str:string):number{
-  let newel=+str.slice(1)
-  return newel
-} 
+let arr=[1,15,2]
+arr.sort(compareNumeric)
+console.log(arr)
