@@ -1,5 +1,5 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-import { assert } from "chai";
+//import { assert } from "chai";
 import { quiz } from "../src/grades.js";
 describe("grades from quiz", function () {
     it("scoreStudent 10", function () {

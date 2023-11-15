@@ -1,5 +1,5 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-import { assert } from "chai";
+//import { assert } from "chai";
 import { filterRangeInPlace, filterRange, calculator, unique, groupById, map2fullName, sortByAge, findOldest, getAverageAge } from "../src/methods.js";
 /*
 Write a function filterRange(arr, a, b) that gets an array arr, looks for elements with values higher or equal to a and lower or equal to b and return a result as an array.
