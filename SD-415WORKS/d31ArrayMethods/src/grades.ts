@@ -26,6 +26,8 @@ export const quiz = {} as Quiz;
 quiz.students = [{ sid: 10, answers: [{ qid: 2, ans: "b" }, { qid: 3, ans: "a" }, { qid: 1, ans: "b" }] },
 { sid: 11, answers: [{ qid: 1, ans: "e" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }] },
 { sid: 12, answers: [{ qid: 3, ans: "b" }, { qid: 2, ans: "a" }, { qid: 1, ans: "d" }] }];
+
+
 quiz.key = [{ qid: 1, ans: "b" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }];
 
 /**
@@ -34,7 +36,13 @@ quiz.key = [{ qid: 1, ans: "b" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }];
  * @param {Object} ans2 is an answer object 
  * @returns {number} difference of the identifiers
  */
-function answerComparator(ans1, ans2) {
+export function answerComparator(ans1:Answer, ans2:Answer):number{
+    if(ans1.qid < ans2.qid )
+        return -1
+        
+    if(ans1.qid > ans2.qid)
+        return 1
+    return 0
 //IMPLEMENT THIS
 }
 
@@ -46,17 +54,32 @@ function answerComparator(ans1, ans2) {
  * sort the student answers
  * compare them against key and add up matches
  */
-quiz.scoreStudent = function (sid) {
-//IMPLEMENT THIS
-};
-
-/**
+quiz.scoreStudent = function (sid):number {
+let student1 = quiz.students.filter(item => item.sid === sid) 
+let total:number=0
+let studs1:Answer[] =[];
+for(let studs of student1){
+  studs1 = studs.answers.sort(answerComparator)
+console.log(studs1)
+}
+for(let i = 0; i < studs1.length; i++){
+if(quiz.key[i].ans === studs1[i].ans)
+total = total +1
+    }  
+  
+console.log(total)
+return total
+}
+quiz.scoreStudent(12)
+/**:
  * @returns {number} average score of all students
  * go through list of students and get score of each, then the average
  */
-quiz.getAverage = function(){
-//IMPLEMENT THIS
-
+quiz.getAverage = function():number{
+const totalScore = quiz.students.reduce((sum, student) => sum + quiz.scoreStudent(student.sid), 0);
+const averageScore = totalScore / quiz.students.length;
+return averageScore;
 };
+console.log(quiz.getAverage().toFixed(3))
 
 

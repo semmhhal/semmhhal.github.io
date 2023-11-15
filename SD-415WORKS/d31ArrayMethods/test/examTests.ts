@@ -19,7 +19,7 @@ describe("exam2 coding", function () {
         //Use slice and splice to write TypeScript code for the replaceEnds function.  replaceEnds should be a pure function.
         //first two number arguments replace the first and second elements of the array, last two number arguments replace the 
         //last two elements of the array
-        const arr = [5, 4, 3, 2, 1, 0];
+        const arr =    [5, 4, 3, 2, 1, 0];
         const result = [6, 1, 3, 2, 2, 4]
         assert.deepEqual(replaceEnds(arr, 6, 1, 2, 4), result);
         assert.deepEqual(arr, [5, 4, 3, 2, 1, 0]); //original array is unchanged
