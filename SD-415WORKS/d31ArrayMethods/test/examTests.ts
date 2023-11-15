@@ -63,13 +63,13 @@ describe("fitness tracking", function () {
     const session3 = { userId: 2, duration: 30 };
     const session4 = { userId: 3, duration: 15 };
     const session5 = { userId: 3, duration: 75 };
-    const day1 = { sessions: [session1, session2], date: "01/10/2022" };
-    const day2 = { sessions: [session3, session4, session5], date: "01/11/2022" };
+    const day1 = { Session: [session1, session2], date: "01/10/2022" };
+    const day2 = { Session: [session3, session4, session5], date: "01/11/2022" };
     const dailyRecord = [day1, day2];
 
     //     Utilize a for..of loop in a function, calculateDailyTotalDuration, to find the total workout duration for a given day. 
     it("calculateDailyTotalDuration", function () {
-        assert.strictEqual(calculateDailyTotalDuration(day2.sessions), 120)
+        assert.strictEqual(calculateDailyTotalDuration(day2.Session), 120)
     });
 
     // Develop a function, calculateTotalDuration, using a for..of loop, to find the total workout duration across all 

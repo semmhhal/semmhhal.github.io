@@ -1,23 +1,21 @@
 
-export type Output= {
-    firstname:string,
-    lastname:string,
+export type output= {
+    firstName:string,
+    lastName:string,
 }
 
-export function firstLast(names:string[]):  Output[]{
+export function firstLast(names:string[]): output[]{
 
 let newArr:string[][]=[]
 for(let elements of names){
 newArr.push(elements.split(" "))
 }
-let result:Output[]= newArr.map(([firstname,lastname])=>({firstname,lastname}))
+let result:output[]= newArr.map(([fname,lname])=>({firstName:fname,lastName:lname}))
  
 return result
  
  
 }
-const names = ["Fred Smith", "Carl Lindstrom"];
-console.log(firstLast(names))
 
 export function replaceEnds(arr:number[],num1:number,num2:number,num3:number,num4:number):number[]{
     let newArr:number[]=arr.slice()
@@ -36,7 +34,7 @@ export function square(arr:number[]):number[]{
  }
  
  
- export function highho(func: (num: number[]) => number[], arr: number[]): number[]{
+ export function higho(func: (num: number[]) => number[], arr: number[]): number[]{
  let result=func(arr)
  return result
  }
@@ -88,7 +86,7 @@ for(let days of arr){
 return Overalltotal
 }
 
-export function getAllSession(arr:days[]):sessions[]{
+export function getAllSessions(arr:days[]):sessions[]{
     let allsessions:sessions[]=[];
     for(let day of arr){
         allsessions=allsessions.concat(day.Session)
@@ -98,13 +96,13 @@ return allsessions
 }
 
 export function getAllSessionsForUser(dailyRecord:days[],num:number):sessions[]{
-    let lnewresult = getAllSession(dailyRecord).filter(item=>item.userId===num)
+    let lnewresult = getAllSessions(dailyRecord).filter(item=>item.userId===num)
    
    return lnewresult
 }
 
 export function getAllDurations(dailyRecord:days[]):number[]{
-    let newresult = getAllSession(dailyRecord).map(item=>item.duration)
+    let newresult = getAllSessions(dailyRecord).map(item=>item.duration)
     return newresult
 }
 

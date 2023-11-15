@@ -1,14 +1,20 @@
-export {collectRoomNumbers, collectRoomsAndCapacities , collectLabeledRoomCapscountStudentsInClassroom, 
-  findClassroomsWithCapacity, findStudentsOlderThan, averageStudentAge};  //implement these
 
-type Classroom = {
-    //YOUR CODE HERE
+
+  export type Classroom = {
+    roomNumber:number,
+    capacity:number,
+    students:Student[],
+  }
+  
+  export type Student = {
+      name:string,
+      age:number,
+  }   
+  
+export type classes={
+    capacity:number,
+    roomNumber:number,
 }
-
-type Student = {
-    //YOUR CODE HERE
-}   
-
 
 export const classrooms = [
     {
@@ -56,6 +62,72 @@ the average age of students across all classrooms.
 
 
 
+export function collectRoomNumbers():number[]{
+  let newArr:number[]=[]
+
+  for(let elements of classrooms){
+      newArr.push(elements.roomNumber)
+  }
+  return newArr
+}
+
+export function collectRoomsAndCapacities():string[]{
+  let newArr:string[]=[]
+  for(let elements of classrooms){
+    let json= JSON.stringify(elements.roomNumber)
+    let json2=JSON.stringify(elements.capacity)
+      newArr.push(json + "::" + json2)
+  }
+  return newArr
+}
 
 
-  
+export function collectLabeledRoomCaps():classes[]{
+  let Output:classes[]=classrooms.map((currentElement)=>({roomNumber:currentElement.roomNumber,capacity:currentElement.capacity}))
+  return Output
+}
+
+
+export function countStudentsInClassroom(classrooms:Classroom[],num:number):number{
+  let count=0
+  for(let elements of classrooms){
+      let StudentList=elements.students
+   for(let students of StudentList){
+      students;
+      if(num===elements.roomNumber){
+          count++
+      }  
+   }
+  }
+  return count
+}
+
+
+export function findClassroomsWithCapacity(classrooms:Classroom[],capacity:number):Classroom[]{
+return classrooms.filter((classroom) => classroom.capacity >= capacity);
+}
+
+
+export function findStudentsOlderThan(classrooms:Classroom[],age:number):Student[]{
+  let result: Student[] = [];
+  classrooms.forEach((classroom) => {
+    result = result.concat(classroom.students.filter((student) => student.age > age));
+  });
+  return result
+}
+
+export function averageStudentAge(classrooms:Classroom[]):number{
+  const totalSum = classrooms.reduce((accumulator, currentValue) => {
+      const eachStud = currentValue.students;
+      const sumOfAges = eachStud.reduce((acc, curr) => acc + curr.age, 0);
+      return accumulator + sumOfAges;
+    }, 0);
+    const count = classrooms.reduce((accumulator, currentValue) => {
+      const eachStud = currentValue.students;
+      return accumulator + eachStud.length;
+    }, 0);
+    const Avg = totalSum / count;
+    return Avg;
+  }
+
+
