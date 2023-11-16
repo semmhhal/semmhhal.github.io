@@ -9,9 +9,24 @@ You will need to use generic typing for copyArray and concat.   copyArray generi
 Do the same pattern for concat.
 */
 
-export function copyArray<T>(arr: T[]): T[] {
-    // COMPLETE THIS
+export function copyArray(oldArr: number[]): number[] {
+    let newArr=[...oldArr]
+    let copyofnewArr=[...newArr]
+    copyofnewArr.push(4)
+    return newArr
 
 }
 
+export function concat(arr1:number[],arr2:number[]):number[]{
+    let newArr=arr1.concat(arr2)
+    return newArr
+ }
 
+ export function findMin(...arr:number[]):number{
+    let minimum= Math.min(...arr)
+    return minimum
+    }
+
+export  function findProduct(...arr:number[]):number{
+    return arr.reduce((product,num)=>product*=num,1)
+    }
