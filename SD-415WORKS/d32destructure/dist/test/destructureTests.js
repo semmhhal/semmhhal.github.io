@@ -1,5 +1,5 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-import { assert } from "chai";
+//import { assert } from "chai";
 import { topSalary } from "../src/destructure.js";
 import { classrooms, collectRoomNumbers, collectRoomsAndCapacities, collectLabeledRoomCaps, countStudentsInClassroom, findClassroomsWithCapacity, findStudentsOlderThan, averageStudentAge } from '../src/classrooms.js';
 /*

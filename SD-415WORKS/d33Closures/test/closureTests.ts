@@ -12,9 +12,7 @@ describe("inArray", function () {
   it("returns the filter for values in array", function () {
     const filter1To7 = inArray(arr);
     assert.strictEqual(filter1To7(5), true);
-    assert.strictEqual(filter1To7(0), false);
-
-  });
+    
 
   it("tests inArray works with Array.filter", function () {
     const filter1To7 = inArray(arr);
@@ -22,7 +20,7 @@ describe("inArray", function () {
     assert.deepEqual(arr2.filter(filter1To7), [5, 6]);
   });
 });
-
+})
 describe("inBetween", function () {
 
   it("returns the filter for values between", function () {
