@@ -40,3 +40,40 @@
 // }
 
 // console.log(findProduct(1,2))
+
+function findFactorial(n:number):number{
+    let factorial=1
+
+for(let i=n;i>0;i--){
+factorial=factorial*i
+}
+return factorial
+}
+ console.log(findFactorial(5))
+
+ function factorial(num:number):number{
+    //base case
+    if(num===1){
+        return 1
+    }
+    else{
+        return num* factorial(num-1)
+    }
+ }
+ console.log(factorial(5))
+
+ ///
+ function countInstances(word:string,letter:string):number{
+    if(word==="")
+    return 0;
+
+    else if(word[0]===letter){
+      //check 
+      return 1+ countInstances(word.substr(1),letter);
+    }
+      else{
+        return countInstances(word.substr(1),letter)}
+      }
+    console.log(countInstances("All that is great and good.", "t"))
+
+ 
