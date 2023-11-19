@@ -9,8 +9,20 @@ Make the transactionsDB private by making it a local variable in the makeBank fu
  * @returns {bank} factory function that builds and returns bank object
  */
 
-
+type CustomerRecord = {  //interface for the transaction object
+    customerId: number;
+    customerTransactions: number[];
 }
+
+type Bank = {    //interface for the bank object 
+    transactionsDB: CustomerRecord[];
+    getBalance: (customerId: number) => number;
+    bankBalance: () => number;
+}
+
+
+export const bank = {} as Bank; 
+
 export function makeBank(){
    const transactionsDB = [
     { customerId: 1, customerTransactions: [10, 50, -40] },

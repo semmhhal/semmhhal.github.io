@@ -16,7 +16,7 @@ return doubled
  * @param {*} func 
  * @returns 
  */
-export function myFilter(arr:number[], func:(num:number)=>number):number[] {
+export function myFilter(arr:number[], func:(number:number)=>number):number[] {
 let filtered:number[]=arr.filter(num=>func(num))
 return filtered;
 }
@@ -28,7 +28,7 @@ return filtered;
  * @param {*} initialValue 
  * @returns 
  */
-export function myReduce(arr:number[], func:(acc:number,numb:number)=>number, initialValue:number):number {
-    let reduced:number=arr.reduce((sum,num,acc)=>(sum + func(acc,num),initialValue))
+export function myReduce(arr:number[], func:(acc:number,number:number)=>number, initialValue:number):number {
+    let reduced:number=arr.reduce((number,acc)=>func(acc,number),initialValue)
     return  reduced;
     }
