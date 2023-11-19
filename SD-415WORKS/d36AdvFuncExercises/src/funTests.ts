@@ -5,8 +5,9 @@
  * @param {*} func 
  * @returns 
  */
-export function myMap(arr, func) {
-//IMPLEMENTATION NEEDED
+export function myMap(arr:number[], func:(num:number)=>number):number[] {
+let doubled:number[]=arr.map(number=>func(number))
+return doubled
 }
 
 /**
@@ -15,8 +16,9 @@ export function myMap(arr, func) {
  * @param {*} func 
  * @returns 
  */
-export function myFilter(arr, func) {
-//IMPLEMENTATION NEEDED
+export function myFilter(arr:number[], func:(num:number)=>number):number[] {
+let filtered:number[]=arr.filter(num=>func(num))
+return filtered;
 }
 
 /**
@@ -26,7 +28,7 @@ export function myFilter(arr, func) {
  * @param {*} initialValue 
  * @returns 
  */
-export function myReduce(arr, func, initialValue) {
-    //IMPLEMENTATION NEEDED
-    return  ;
+export function myReduce(arr:number[], func:(acc:number,numb:number)=>number, initialValue:number):number {
+    let reduced:number=arr.reduce((sum,num,acc)=>(sum + func(acc,num),initialValue))
+    return  reduced;
     }

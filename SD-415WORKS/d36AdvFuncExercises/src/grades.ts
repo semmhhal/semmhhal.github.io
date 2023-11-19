@@ -13,7 +13,18 @@ Create an object named quiz with the following methods
 The answer arrays might not have the questions in the same order.  Write a function, answerComparator, that you can use to sort the answer arrays by the quiz id, “qid”.   You may assume that there will be answer objects for every question so that once they are sorted they arrays will have the student answers and the corresponding key answer in the same position of each array.  Score 1 point for each answer that matches the key.
 */
 
-export const quiz = {};
+type Student = { sid: number, answers: Answer[] };
+type Answer = { qid: number, ans: string };
+type Key = Answer[];
+
+type Quiz = {
+    students: Student[],
+    key: Key, 
+    answerComparator: (ans1: Answer, ans2: Answer) => number,
+    scoreStudent: (sid: number) => number,
+    getAverage: () => number
+};
+export const quiz = {} as Quiz;
 quiz.students = [{ sid: 10, answers: [{ qid: 2, ans: "b" }, { qid: 3, ans: "a" }, { qid: 1, ans: "b" }] },
 { sid: 11, answers: [{ qid: 1, ans: "e" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }] },
 { sid: 12, answers: [{ qid: 3, ans: "b" }, { qid: 2, ans: "a" }, { qid: 1, ans: "d" }] }];
@@ -25,8 +36,16 @@ quiz.key = [{ qid: 1, ans: "b" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }];
  * @param {Object} ans2 is an answer object 
  * @returns {number} difference of the identifiers
  */
-function answerComparator(ans1, ans2) {
-//IMPLEMENT THIS
+
+
+function answerComparator(ans1:Answer,ans2:Answer):number{
+if(ans1.qid<ans2.qid)
+return -1
+else if(ans1.qid>ans2.qid)
+return 1
+else 
+return 0
+
 }
 
 /**
@@ -37,8 +56,23 @@ function answerComparator(ans1, ans2) {
  * sort the student answers
  * compare them against key and add up matches
  */
-quiz.scoreStudent = function (sid) {
-//IMPLEMENT THIS
+quiz.scoreStudent = function (sid):number {
+let total:number=0
+let studentArray:Answer[]=[]
+let students1=quiz.students.filter(item=>item.sid===sid)
+
+for(let studs of students1){
+    studentArray=studs.answers.sort(answerComparator)
+    console.log(studentArray)
+}
+for(let answers1 of studentArray){
+    for(let correctAnswers of quiz.key){
+        if(answers1.ans===correctAnswers.ans){
+            total+=1
+        }
+    }
+}
+return total
 };
 
 /**
@@ -46,7 +80,9 @@ quiz.scoreStudent = function (sid) {
  * go through list of students and get score of each, then the average
  */
 quiz.getAverage = function(){
-//IMPLEMENT THIS
 
+const totalscores=quiz.students.reduce((sum,student)=>sum+quiz.scoreStudent(student.sid),0)
+const Average=totalscores/quiz.students.length
+return Average
 };
 

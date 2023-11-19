@@ -45,8 +45,9 @@ quiz.scoreStudent = function (sid) {
         studs1 = studs.answers.sort(answerComparator);
         console.log(studs1);
     }
-    for (let i = 0; i < studs1.length; i++) {
-        if (quiz.key[i].ans === studs1[i].ans)
+    for (let answers of students) {
+        for(let correctanswers of quiz.key)
+        if (answers.ans===correctanswers.ans)
             total = total + 1;
     }
     console.log(total);
