@@ -22,20 +22,20 @@ type Bank = {    //interface for the bank object
 
 export const bank = {} as Bank; 
 
-export function makeBank(){
+export function makeBank():Bank{
  
 const  transactionsDB =[
             { customerId: 1, customerTransactions: [10, 50, -40] },
             { customerId: 2, customerTransactions: [10, 10, -10] },
             { customerId: 3, customerTransactions: [5, -5, 55] }]
-    const bank={
+    const bank:any={
  getBalance : function (customerId:number):number {
     const customer= transactionsDB.find(customer => customer.customerId === customerId);
     let balance = 0;
     if(customer)
     for (const trans of customer.customerTransactions) { balance += trans; }
     return balance;
-},
+}, 
 
 bankBalance : function () {
     let total = 0;
