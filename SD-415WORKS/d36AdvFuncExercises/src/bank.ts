@@ -20,17 +20,16 @@ type Bank = {    //interface for the bank object
     bankBalance: () => number;
 }
 
-
 export const bank = {} as Bank; 
 
 export function makeBank(){
-   const transactionsDB = [
-    { customerId: 1, customerTransactions: [10, 50, -40] },
-    { customerId: 2, customerTransactions: [10, 10, -10] },
-    { customerId: 3, customerTransactions: [5, -5, 55] }];
-    
+ 
+const  transactionsDB =[
+            { customerId: 1, customerTransactions: [10, 50, -40] },
+            { customerId: 2, customerTransactions: [10, 10, -10] },
+            { customerId: 3, customerTransactions: [5, -5, 55] }]
     const bank={
-    getBalance : function (customerId:number):number {
+ getBalance : function (customerId:number):number {
     const customer= transactionsDB.find(customer => customer.customerId === customerId);
     let balance = 0;
     if(customer)
@@ -38,7 +37,7 @@ export function makeBank(){
     return balance;
 },
 
-    bankBalance : function () {
+bankBalance : function () {
     let total = 0;
     for (const trans of transactionsDB) {
         total += this.getBalance(trans.customerId);

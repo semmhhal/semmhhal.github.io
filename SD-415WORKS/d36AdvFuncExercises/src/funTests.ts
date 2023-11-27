@@ -16,7 +16,7 @@ return doubled
  * @param {*} func 
  * @returns 
  */
-export function myFilter(arr:number[], func:(number:number)=>number):number[] {
+export function myFilter(arr:number[], func:(number:number)=>boolean):number[] {
 let filtered:number[]=arr.filter(num=>func(num))
 return filtered;
 }

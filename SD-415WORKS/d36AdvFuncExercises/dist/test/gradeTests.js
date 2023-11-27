@@ -1,11 +1,7 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
 import { assert } from "chai";
-
-import { quiz } from "./grades.js";
-
-
+import { quiz } from "../src/grades.js";
 describe("grades from quiz", function () {
-
     it("scoreStudent 10", function () {
         assert.strictEqual(quiz.scoreStudent(10), 1);
     });
@@ -18,5 +14,4 @@ describe("grades from quiz", function () {
     it("getAverage", function () {
         assert.strictEqual(Number(quiz.getAverage().toFixed(3)), 1.667);
     });
-
 });

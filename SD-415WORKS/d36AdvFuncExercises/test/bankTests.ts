@@ -10,7 +10,9 @@ describe("bank tests", function () {
         assert.strictEqual(bank.bankBalance(), 85);
     });
 
-    // it("transactionsDB is private", function () {
-    //     assert.strictEqual(bank.transactionsDB in bank, false);
-    // });
+    it("transactionsDB is private", function () {
+        const bankProps=Object.keys(bank);
+        assert.strictEqual(bankProps.find(prop=>prop==="transactionsDB"),undefined)
+
+    });
 });

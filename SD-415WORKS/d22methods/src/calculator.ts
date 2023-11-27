@@ -1,6 +1,6 @@
 
 export const calculator = {
-    operand1: 0,
+    operand1: 0 ,
     operand2: 0,
 setValues(value1:number, value2:number) {
      this.operand1 = value1;
