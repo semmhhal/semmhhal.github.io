@@ -1,5 +1,5 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-import { assert } from "chai";
+//import { assert } from "chai";
 import { myMap, myFilter, myReduce } from "../src/funTests.js";
 describe("map filter reduce", function () {
     let testArray = null;

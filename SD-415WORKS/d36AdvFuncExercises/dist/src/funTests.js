@@ -15,7 +15,7 @@ export function myMap(arr, func) {
  * @returns
  */
 export function myFilter(arr, func) {
-    let filtered = arr.filter(number => func(number));
+    let filtered = arr.filter(num => func(num));
     return filtered;
 }
 /**
