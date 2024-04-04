@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+    width:100%;
+    border:1px solid red;
+    }
+    #styleit{
+        font-weight: bolder;
+    }
+
+</style>
+<script>
+    function addIt(){
+   let box1value=document.getElementById("box1")
+    let result1=box1value.value
+   // document.querySelector("table td:nth-child(1)").after(result1)
+
+    let box2value=document.getElementById("box2")
+    let result2=box2value.value
+    //document.querySelector("table td:nth-child(2)").after(result2)
+
+    let box3value=document.getElementById("box3")
+    let result3=box3value.value
+    //document.querySelector("table td:nth-child(3)").after(result3)
+
+    //added to the new table
+    let newtable=document.querySelector("table")
+    newtable.innerHTML+= "<tr>" 
+        + "<td>" + result1 +"</td>"
+         + "<td>" +  result2  + "</td>"
+         + "<td>"+ result3 +"</td>"
+         +"</tr>"
+
+    }
+</script>
+<body>
+    <label>Name:</label>
+    <input name="bb" type="text"id="box1">
+    <label>Price:</label>
+    <input name="bb" type="text" id="box2">
+    <label>Quantity: </label>
+    <input name="bb" type="text" id="box3">
+    <input type="button" value="Add" onclick="addIt()">
+    <div id="table1">
+        <table>
+            <tr>
+                <td id="styleit">Name</td>
+            
+                <td id="styleit">Price</td>
+                <td id="styleit">Quantity</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

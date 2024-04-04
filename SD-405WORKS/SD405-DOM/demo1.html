@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload= function(){
+       
+        let flowers=document.createElement('div')
+        flowers.innerHTML='<label id= "flower1">Lily</label>'+'<input type="checkbox" name="flowerchecked" id="input1">'+
+        '<label id= "flower2">Jasmine</label>'+'<input type="checkbox" name="flowerchecked" id="input2">'
+        document.body.prepend(flowers)
+
+    }
+    function showValue(){
+        let firstcheck=document.getElementById("input1")
+        let secondcheck=document.getElementById("input2")
+
+        if(document.getElementById("input2").checked==true){
+           secondcheck.style.display="none"}
+
+       else if(document.getElementById("input1").checked==true){
+            firstcheck.style.display="none"}
+        else
+        {firstcheck.style.display="" 
+        secondcheck.style.display=""}
+    }
+     function add(){
+         let collectionli=document.querySelectorAll('li')
+        let newli= document.createElement('li')
+        newli.innerHTML="Mango"
+      
+        for(let i=0;i<=collectionli.length;i++){
+         if(collectionli[i].innerHTML=="Sapota"){
+            collectionli[i].after(newli)}
+         }
+     }
+</script>
+<body>
+    <button onclick="showValue()">Submit</button>  
+    <ul>
+
+        <li>Jack Fruit</li>
+        <li>Sapota</li> 
+       
+    </ul>
+    <button onclick="add()">Add</button>
+    </body>
+</html>

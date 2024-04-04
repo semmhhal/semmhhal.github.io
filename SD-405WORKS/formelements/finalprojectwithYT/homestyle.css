@@ -1,0 +1,64 @@
+.navcontainer{
+    
+    margin-top: -0.5%;  
+}
+.searchimg{
+    width:8%
+}
+.heartimg{
+    width:8%;   
+}
+.cartimg{
+    width:8%;
+}
+.topnav{
+   
+    padding:1%;
+    width:100%;
+    text-align: center;
+    font-size: medium;
+    font-family:'Times New Roman', Times, serif;
+    background-color: black;
+    color:white
+}
+.middlenav{
+    display:flex;
+    grid-template-columns: 0.2fr 6fr 3fr;
+    border-bottom:1px solid black;
+    width:100%;
+   gap:20%;
+}
+.lowernav{
+border:1px solid black;
+text-align: center;
+width:100%;
+background-color: rgb(193, 196, 199);
+}
+
+.middleleftnav{
+margin-left:4%
+}
+.middlecenternav{
+    margin-left: 10%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap:50%;
+   font-family: 'Times New Roman', Times, serif;
+   font-size: large;
+   font-weight: bold;
+   margin-top: 1%;
+}
+.middlerightnav{
+display:flex;
+flex-direction: row;
+justify-content: center;
+}
+
+.searchbar{
+    border-radius: 50px;
+    width:40%;
+    height:40%;
+    margin-top:3%;
+   margin-left:40%;
+   background-color: rgb(234, 236, 238);
+}

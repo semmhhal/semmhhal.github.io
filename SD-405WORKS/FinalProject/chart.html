@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+<link href="home.css" rel="stylesheet">
+<script src="home.js"></script>
+<style>
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 16px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+<body>
+
+  <!--Nav html-->
+  <div class="NavoverallContainer">
+    <div class="topnav">
+      <label>Free Standard shipping and Returns for All YS Members</label>
+    </div>
+    <div class="navcontainer">
+
+      <div class="logoContainer">
+        <svg width="100px" height="50px">
+          <line x1="3" y1="5" x2="25" y2="20" style="stroke:black;stroke-width:5px" />
+          <line x1="50" y1="5" x2="25" y2="20" style="stroke:black;stroke-width:5px" />
+          <line x1="25" y1="20" x2="25" y2="90" style="stroke:black;stroke-width:5px" />
+          <line x1="90" y1="10" x2="50" y2="20" style="stroke:black;stroke-width:5px" />
+          <line x1="50" y1="20" x2="80" y2="30" style="stroke:black;stroke-width:5px" />
+          <line x1="80" y1="30" x2="27" y2="60" style="stroke:black;stroke-width:5px" />
+        </svg>
+      </div>
+
+      <div class="CatagoryNav">
+        <a class="LinkStyle" href="home.html">Home</a>
+        <a class="LinkStyle" href="Men.html">Men</a>
+        <a class="LinkStyle" href="Women.html">Women</a>
+        <a class="LinkStyle" href="kids.html">Kids</a>
+        <a class="LinkStyle" href="Sale.html">SALE</a>
+        <a class="LinkStyle" href="MembersOnly.html">Members Only</a>
+      </div>
+
+      <div class="imgclass">
+        <div class="SearchBarDiv"><input class="searchbar" type="textbox" placeholder="Search">
+          <button onclick="Search()" id="Search" class="SearchButton">
+            <svg width="30" height="30">
+              <rect width="30" height="30" fill="none" />
+              <circle cx="10" cy="10" r="8" stroke="white" stroke-width="2" fill="none" />
+              <line x1="15" y1="15" x2="20" y2="20" stroke="white" stroke-width="2" />
+            </svg></button>
+        </div>
+        <button onclick="WishList()" id="WishList" class="navbuttons"><img class="heartimg"
+            src="images/HEART LOGO.png"></button>
+        <button onclick="DisplayCart()" id="DisplayCart" class="navbuttons"><img class="cartimg"
+            src="images/CART LOGO.jpeg"></button>
+      </div>
+    </div>
+    <div class="lowernav">
+      <label>Up to 65% OFF if you win! <input style="margin-bottom: 4px;" type="button" id="GameStartandStop"
+          onclick="playGame()" value="Click here to play!" /></label>
+    </div>
+
+  </div>
+
+
+  <!-- Body Html -->
+  <div class="gameDiv" id="GameDiv" style="display: none; text-align: center;">
+
+    <p id="gameMessage"> use arrow keys on your keyboard to play</p>
+  </div>
+
+ 
+
+  <div class="OverallContainer">
+
+    <div class="ContentContainerContainer" id="BuyBigCon" style="text-align: center;" >
+        <h2>Your Cart</h2>
+<hr>
+        <div class="ContentContainer" id="CartCon">
+<script>
+    window.onload = function(){
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i); 
+            const value = localStorage.getItem(key);
+            let newPic = document.createElement('img')
+            newPic.setAttribute('src', value)
+            newPic.setAttribute('width', '100px')
+            newPic.setAttribute('height', '100px')
+            let imgdisplay = document.getElementById('CartCon');
+            imgdisplay.append(newPic);}
+
+            Buybutton = document.createElement('button');
+            Buybutton.innerHTML = 'Buy Now'
+            Buybutton.setAttribute('class', 'BuyButtonStyle')
+            Buybutton.setAttribute('onlick', 'buyNowF()')
+            let buttondisplay  = document.getElementById('BuyBigCon')
+            buttondisplay.append(Buybutton)
+        }
+    
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+
+
+  <!--Footer html-->
+
+  <footer class="footerContainer">
+    <div class="Innerfooter">
+      <div class="SignupFooter">
+        <h2 style="border-bottom: 1px solid; text-align: center;">DON'T MISS OUT</h2>
+
+        <p>UNLOCK 20% OFF* Sign up and we'll keep you updated with the latest collections,exclusive offers and
+          promotions(both online and in store).</p>
+        <hr>
+        <div class="FooterSearchBar"><input type="textbox" placeholder="ENTER YOUR EMAIL">
+          <input type="button" class="footerSignup" value="Sign Up">
+        </div>
+        <h3>STAY CONNECTED</h3>
+        <hr>
+        <div class="footerimages">
+          <a href="google.com"><img class="footerSocailImg" src="images/pinterest logo.png"></a>
+          <a href="google.com"><img class="footerSocailImg" src="images/instagramlogo.png"></a>
+          <a href="google.com"><img class="footerSocailImg" src="images/youtubelogo.png"></a>
+          <a href="google.com"><img class="footerSocailImg" src="images/facebook logo .png"></a>
+        </div>
+      </div>
+      <div class="customerSupport">
+        <h2 style="border-bottom: 1px solid; text-align: center;">CUSTOMER SUPPORT</h2>
+
+        <div class="customer2columns">
+          <div class="customerfirstcolumns">
+            <p>1.8666.YS-2023</p>
+
+            <p>Track Order</p>
+
+            <p>Order Status & History</p>
+
+            <p>Shipping Information</p>
+
+            <p>Store Locator</p>
+
+            <p>Return Policy</p>
+
+          </div>
+          <div class="customerfirstcolumns">
+            <p>All stores</p>
+
+            <p>Interational</p>
+
+            <p>Klarna</p>
+
+            <p>FAQS</p>
+
+            <p>Fraud FAQS</p>
+
+            <p>Contact Us</p>
+          </div>
+        </div>
+      </div>
+      <div class="AboutUs">
+        <h2 style="border-bottom: 1px solid; text-align: center;">ABOUT US</h2>
+
+        <p>Jobs</p>
+
+        <p>Ambassador Program</p>
+
+        <p>Foundation</p>
+
+        <p>Diversity & Inclusion</p>
+
+        <p>Privacy Policy</p>
+
+        <p>Website Terms of Use</p>
+      </div>
+    </div>
+
+  </footer>
+
+</body>
+
+</html>

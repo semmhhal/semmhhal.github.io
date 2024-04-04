@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function go(){
+        //CHANGE CONTENT INSIDE TEXT AREA ON CLICK
+   let edited1=document.getElementsByClassName('textArea');
+        for(i=0;i<edited1.length;i++){
+            edited1[i].innerHTML="EDITED" + edited1.innerHTML
+        }
+//CHANGE COLOR OF ELEMENTS INSIDE OF INPUT ON CLICK
+    let inputs1=document.querySelectorAll('input.Area');
+    for(let i=0;i<inputs1.length;i++){
+        if(i>1){
+           inputs1[i].style.color="red"}
+
+    }
+//CREATE DIV, ST ATTRIBUTES, APPEND IT TO THE BODY AND CHANGE ITS STYLES
+    let div1=document.createElement("H1");
+    div1.innerHTML="HELLO WORLD"
+    div1.setAttribute("id","div11")
+   document.body.append(div1)
+
+//FETCH ATTRIBUTES
+    let stylish=document.getElementById("div11")
+   console.log(stylish.getAttribute("id"))
+    }
+</script>
+<body>
+    <textarea class="textArea" >it truly is amazing!</textarea>
+    <textarea class="textArea" >amazing!</textarea>
+    <textarea class="textArea" >wow</textarea>
+    <textarea class="textArea" >good job semhal!!</textarea>
+    <br>
+    <input type="text"  value="sem" class="Area">
+    <input type="text" value="sem1" class="Area">
+    <input type="text" value="sem2" class="Area">
+    <input type="button" onclick="go()" value="GO">
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "target": "es2022", //sets JavaScript emitted code to 2022 version
+        "module": "ES2022", //sets module code emitted to es modules
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "strict": true,
+        "esModuleInterop": true,
+        
+    },
+    "include": [
+        "*.ts",
+        "./src/*.ts",
+        "./test/*.ts",
+        "src/**/*.ts"
+,       "test/d13tests.ts"
+],
+    "ts-node": {
+        "esm": true, // «———— enable ESM for ts-node
+    },
+
+   "$schema": {
+        "$schema": "./tsconfig-schema.json",
+        "compilerOptions": {
+          "target": "es6",
+          // ... other compiler options
+        },
+}
+}

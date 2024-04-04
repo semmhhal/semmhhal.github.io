@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login</title>
+    <link href="loginStyle.css" rel="stylesheet">
+    <script src="login.js"></script>
+</head>
+
+<body>
+    <div class="containerFlex">
+
+        <div class="insidelogin">
+            <div class="divOne">
+
+                <img style="margin-top: 10%;" src="YS.png" alt="" width="50" height="50">
+
+                <h1>Please login</h1>
+
+                <div class="divTwo">
+
+                    <div class="divFour">
+                        <label for="inputEmail" class="sr-only">Username</label>
+                        <label for="inputPassword" class="sr-only">Password</label>
+                    </div>
+                    <div class="divFour">
+                        <input class="loginInputBox" type="email" id="inputEmail" placeholder="Email address" required
+                            autofocus>
+
+                        <input class="loginInputBox" type="password" id="inputPassword" placeholder="Password" required>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <p class="text1">
+                        By continuing, you agree to Pinterest's Terms of Service; Opens a new tab and
+                        acknowledge you've read our Privacy Policy; Opens a new tab. Notice at collection; Opens a new
+                        tab
+                    </p>
+                </div>
+
+                <div class="divThree">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label><br>
+                </div>
+                <div>
+                    <input class="buttonStyle" type="button" value="Login" onclick="Loginsubmit()" />
+                </div>
+                <div id="text2">Not on YS Fashion yet? <a href="signup.html"
+                        style="color: rgb(245, 0, 0); font-weight: bolder;">Sign up</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

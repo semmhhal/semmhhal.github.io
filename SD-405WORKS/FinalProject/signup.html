@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <title>Login</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="jsPart.js" rel="javascript">
+    <script src="SingUp.js"></script>
+</head>
+
+<body>
+    <div class="containerFlex">
+        <div class="divOne">
+
+            <img style="margin-top: 10%;" src="YS.png" alt="" width="50" height="50">
+
+            <h1>Please Signup</h1>
+
+            <div class="divTwo">
+
+                <div class="divFour">
+                    <label for="inputfirstname" class="sr-only">First Name</label>
+                    <input class="loginInputBox" type="text" id="inputfirstname" placeholder="John" required>
+                </div>
+                <div class="divFour">
+                    <label for="inputsecondname" class="sr-only">Last Name</label>
+                    <input class="loginInputBox" type="text" id="inputsecondname" placeholder="Doe" required>
+                </div>
+                <div class="divFour">
+                    <label for="inputEmail" class="sr-only">Enter Email</label>
+                    <input class="loginInputBox" type="text" id="inputEmailOne" placeholder="Email" required>
+                </div>
+                <div class="divFour">
+                    <label for="inputEmail" class="sr-only">Create Password</label>
+                    <input class="loginInputBox" type="password" id="inputPasswordOne" placeholder="Password" required>
+                </div>
+                <div class="divFour">
+                    <label for="inputPassword" class="sr-only">Confirm Password</label>
+                    <input class="loginInputBox" type="password" id="inputPasswordTwo" placeholder="Password" required>
+                </div>
+
+
+
+
+            </div>
+
+            <div style="text-align: center;">
+                <p class="text1">
+                    By continuing, you agree to Pinterest's Terms of Service; Opens a new tab and
+                    acknowledge you've read our Privacy Policy; Opens a new tab. Notice at collection; Opens a new tab
+                </p>
+            </div>
+
+            <div class="divThree">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label><br>
+            </div>
+            <div>
+                <input class="buttonStyle" type="button" value="Sign Up" onclick="SignUp()" />
+            </div>
+            <div id="text2">Not on YS Fashion yet? <a href="login.html"
+                    style="color: rgb(245, 0, 0); font-weight: bolder;">Login</a></div>
+        </div>
+    </div>
+</body>
+
+</html>

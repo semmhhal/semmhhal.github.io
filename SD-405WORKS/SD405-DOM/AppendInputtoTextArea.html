@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function submit(){
+        let input1=document.getElementById("sem")
+
+        let textvalue=document.querySelector("textarea")
+        textvalue.value = textvalue.value + "" + input1.value
+        input1.value=""
+    }
+</script>
+<body>
+<textarea></textarea>
+<input type="text" id="sem" value="hi">
+ <input type="button" onclick="submit()" value="submit">
+</body>
+</html>

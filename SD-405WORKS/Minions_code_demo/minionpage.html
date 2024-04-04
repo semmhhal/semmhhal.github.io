@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>It's Minion Time</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</head>
+
+<style>
+  body {
+  
+    color: red;
+  }
+
+  header {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    border: 5px solid;
+    border-radius: 100px;
+    padding: 20px;
+    animation: headerchange 3s infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes headerchange {
+    from {
+      background-color: yellow;
+    }
+
+    to {
+      background-color: blue;
+    }
+  }
+
+  .firstandlast {
+    width: 70%;
+    border: 5px solid yellow;
+    padding: 20px;
+    border-radius: 50px;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+  }
+
+  .animation {
+    position: relative;
+    animation-name: animation;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @media screen and (max-width:600px) {
+    .firstandlast {
+      width: 209px;
+    }
+
+  }
+
+  @keyframes animation {
+    from {
+      left: 0px;
+    }
+
+    to {
+      left: 700px;
+    }
+  }
+
+  @media screen and (max-width:600px) {
+    @keyframes animation {
+      from {
+        left: 0px;
+      }
+
+      to {
+        left: 100px;
+      }
+    }
+  }
+
+  .gameTable {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin: 20px auto;
+  }
+
+  .gameColumn {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    background: yellow;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    font-weight: bold;
+    border: 2px solid #ff0000;
+  }
+
+  .displayResult {
+    margin-top: 20px;
+   
+    font-size: large;
+    font-weight: bold;
+  }
+
+ .movesideWay{
+  position: relative;
+  animation-name: example3;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes example3 {
+  0%   {left:0px; top:30px;}
+ 
+  100% {left:90%; bottom:40px;}
+}
+.SmovesideWay{
+  position: relative;
+  animation-name: example4;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes example4 {
+  0%{right: 0px; bottom:0px;}
+  100% {top:90%; left:50%;}
+}
+</style>
+
+<body>
+ 
+  <header>
+    <h1>Minions: <label>
+        <h3>The rise of Gru 2</h3>
+      </label></h1>
+    <text>RESERVE YOUR TICKETS NOW!!</text>
+    <div style="font-size: x-small;">
+      NEW TO OUR CINEMA?
+      <div>Enter Code:WelcomeUS1</div>
+    </div>
+
+  </header>
+  <br>
+ 
+  <div class="SmovesideWay">
+    <img src="minion1.webp">
+  </div>
+
+  <!--container for signup and game-->
+  <div class="container">
+    <form action="../PresentationTwo/bootstrap.html">
+    <div class="firstandlast">
+      <p>Enter your information here:</p>
+      <div class="row g-3">
+        <div class="row-2">
+          <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+        </div>
+
+      </div>
+      <br>
+      <div class="row g-3">
+        <div class="row-2">
+          <input type="text" class="form-control" placeholder="Number of Tickets" aria-label="Number of Tickets">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Coupon Code" aria-label="Coupon code">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+        <div style="text-align: center;">
+          <img src="grumpy-kevin-the-minion.gif" width="80px">
+        </div>
+      </div>
+    </div>
+    <div class="rightgrid">
+      <h3>Play to win a coupon code</h3>
+      <div class="gameTable" id="table">
+        <div class="gameColumn" onclick="makeMove(0)"></div>
+        <div class="gameColumn" onclick="makeMove(1)"></div>
+        <div class="gameColumn" onclick="makeMove(2)"></div>
+        <div class="gameColumn" onclick="makeMove(3)"></div>
+        <div class="gameColumn" onclick="makeMove(4)"></div>
+        <div class="gameColumn" onclick="makeMove(5)"></div>
+        <div class="gameColumn" onclick="makeMove(6)"></div>
+        <div class="gameColumn" onclick="makeMove(7)"></div>
+        <div class="gameColumn" onclick="makeMove(8)"></div>
+      </div>
+
+      <div class="displayResult" id="result"></div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <!--end of signup and game-->
+  </div>
+
+  <div class="movesideWay">
+    <img src="minion2.webp" width="120px">
+  </div>
+ <br><br>
+  <div class="animation">
+    
+    <img src="minion4.webp" width="120px">
+    
+    <img src="c4b0e3d27178fe710bebf860b583128f.webp" width="120px">
+    <img src="depositphotos_412434946-stock-photo-la-ca-usa-sep-1.webp" width="120px">
+    <img src="minion3.webp" width="50px">
+
+  </div>
+</body>
+<script>
+  let PlayerNow = 'X';
+  let TableMarked = ['', '', '', '', '', '', '', '', ''];
+  let GamePlaying = true;
+
+  function makeMove(x) {
+    if (TableMarked[x] === '' && GamePlaying) {
+      TableMarked[x] = PlayerNow;
+      document.getElementById('table').children[x].innerText = PlayerNow;
+      if (checkWin()) {
+        document.getElementById('result').innerText = `${PlayerNow} wins!`;
+        GamePlaying = false;
+      } else if (!TableMarked.includes('')) {
+        document.getElementById('result').innerText = "It's a Draw!";
+        GamePlaying = false;
+      } else {
+        if (PlayerNow === 'X') {
+          PlayerNow = 'O';
+        } else {
+          PlayerNow = 'X';
+        }
+      }
+    }
+  }
+
+  function checkWin() {
+    const winPatterns = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
+    ];
+
+    for (const pattern of winPatterns) {
+      const [a, b, c] = pattern;
+      if (TableMarked[a] && TableMarked[a] === TableMarked[b] && TableMarked[a] === TableMarked[c]) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+</script>
+
+</html>

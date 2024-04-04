@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function clickMe(){
+    //edit div
+    let changeddiv=document.querySelector("div")
+    changeddiv.innerHTML="CHANGED"
+
+    //edit paragraph
+    let changedp=document.querySelector("p")
+    changedp.innerHTML="CHANGED"
+
+    //edit imglinks and href
+    //    let  changedimg=document.querySelector("img")
+    //     changedimg.setAttribute("src","imgs")
+    //     changedhref.innerHTML="image"
+
+    //    let  changedhref=document.querySelector("a")
+    //     changedhref.setAttribute("href","google.links")
+    //     changedhref.innerHTML="SEMS"
+
+    //edit textarea
+    // let editedtext1=document.querySelector("textarea")
+    // editedtext1.value='edit';
+
+    //change label and input
+
+    let editedlabel=document.querySelector("label")
+    editedlabel.innerHTML='edited';
+
+    let editedinput1=document.querySelector("input")
+    editedinput1.setAttribute("type","radio");
+    editedinput1.value = 'myradio';
+
+    }
+
+    function createHtmlElement(){
+     //CREATE div
+   let  newdiv=document.createElement("div")   
+        newdiv.innerHTML="wow"
+        newdiv.setAttribute("id","newdiv")
+        document.body.append("newdiv")
+
+    //input text
+    let newinput=document.createElement("input")
+    newinput.setAttribute("type","text")
+    newinput.value="created from input"
+    document.querySelector("p").after(newinput)
+    
+
+    //add another list item
+    let lastlist=document.querySelector("ul li:nth-child(3)")
+    let newlist=document.createElement("li")
+    newlist.innerHTML="MANGO"
+   document.querySelector("ul").append(newlist)
+
+   let lastrow=document.querySelector("tr")
+    newrow=document.createElement("tr")
+    lastrow.after(newrow)
+    newrow.innerHTML='<td>three</td>' + '<td>four</td>'
+    document.querySelector("table").append(newrow)
+    }
+
+function clearT() {
+    let myInput = document.querySelector('input[type="text"]');
+    myInput.value = "";
+}
+function appendtext(){
+    let inputtext=document.getElementById("input11")
+    let textareaele=document.querySelector("textarea")
+    textareaele.value=textareaele.value + inputtext.value;
+}
+
+</script>
+<body>
+     <ul>
+        <li>Apple</li>
+        <li>Pear</li>
+        <li>Grapes</li>
+    </ul>
+<hr/>
+    <table>
+        <tr>
+            <td> One</td>
+            <td> Two</td>
+        </tr>
+    </table>
+    <hr/>
+    <div> My DIV</div>
+    <hr />
+    <label> Skills</label>
+    <input type="checkbox" name="myCheckbox" />
+    <hr />
+  
+    <hr />
+    <!-- <img src="/images/longImage.jpeg" style="width:100px;" />  -->
+    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, quam? Neque aspernatur amet consectetur,
+        quidem suscipit dolorem harum minima perspiciatis ducimus dolore corporis unde magni sequi enim impedit laborum
+        non?</p>
+    <a href="http://www.google.com">My LInk </a>
+    <hr />
+
+    <button onclick="clickMe()"> Click </button>
+
+    <button onclick="createHtmlElement()"> Create Element </button>
+    <br>
+    <input type="text" value="Apple" id="input11"/>
+    <input type="button" onclick="clearT();" value="clear"/>
+   <br>
+    <textarea></textarea>
+    <br>
+   <input type="button" onclick="appendtext()" value="append"/>
+</body>
+</html>
+
