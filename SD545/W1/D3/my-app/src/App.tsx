@@ -3,6 +3,7 @@ import React, {useState } from 'react';
 import './App.css';
 import Convert from './App-Temp-Convert';
 import RandomGenerate from './App-Generate-Random';
+import DemoApp from './Demo-App';
 
 function App() {
 const [count,setCount]=useState(10)
@@ -26,6 +27,7 @@ const decreaseAmt=()=>{
     <button onClick={decreaseAmt}>Decrease Me</button>
     <RandomGenerate/>
     <Convert/>
+    <DemoApp/>
   
     </div>
 

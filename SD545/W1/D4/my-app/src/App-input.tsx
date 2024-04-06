@@ -1,39 +1,35 @@
-import React, { ChangeEvent, useState,MouseEvent } from 'react';
+import React, { ChangeEvent, useState,MouseEvent, FormEvent, useRef } from 'react';
 
 
 function App1() {
-//   const [username,setUsername]= useState('')
-//   const[password,setPassword]= useState('')
-    const [person,setPerson]=useState({username:'', password:''})
-    const {username,password}=person
+const [person,setPerson]=useState({username:'',password:''})
 
+const usernameRef= useRef<HTMLInputElement | null>(null)
+const passwordRef= useRef<HTMLInputElement | null>(null)
 
-  const changeUsername= (e:ChangeEvent<HTMLInputElement>)=>{
-    setPerson({...person, password:e.currentTarget.value})}
+const {username, password}= person
 
+const handlelogin=(e:MouseEvent<HTMLButtonElement>)=>{
+    e.preventDefault()
+    const username= usernameRef.current!.value
+    const password= passwordRef.current!.value
+    setPerson({...person,username,password})
 
-    const changepassword= (e:ChangeEvent<HTMLInputElement>)=>{
-       setPerson({...person,username:e.target.value})}
-
-
-    const logIn=(e:MouseEvent<HTMLButtonElement>)=>{
-        e.preventDefault()
-        if(username==='John' && password==='123'){
+    if(username==="semhal" && password==="123"){
         console.log('success')
-        }
-        else{
-            console.log('fail')
-        }
-
     }
+    else{
+        console.log('failed')
+    }
+}
 
-  
   return (
 <div>
-    <form>
-  Username: <input value={username} onChange={changeUsername}/>
-  Password: <input value={password} onChange={changepassword}/>
-  <button onClick={logIn}>LogIn</button>
+ Hello, {username}{password}
+    <form >
+  username:<input ref={usernameRef}/>
+  password:<input ref={passwordRef}/>
+  <button onClick={handlelogin}>login</button>
   </form>
 </div>
   );
