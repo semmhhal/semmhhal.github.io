@@ -89,24 +89,23 @@ const tabs = [
 ];
 
 const App = () => {
-  const [commentList, SetCommentsList] = useState<comment[]>(
-    _.orderBy(defaultList, "like", "desc")
-  );
-  const [activeType, setActiveType] = useState("hot");
-
+  const commentList = useRef<comment[]>(_.orderBy(defaultList, "like", "desc"));
+  const activeType = useRef("hot");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const deletecomment = (rpid: number | string) => {
-    SetCommentsList(commentList.filter((item: any) => item.rpid !== rpid));
+    commentList.current = commentList.current.filter(
+      (item: any) => item.rpid !== rpid
+    );
   };
 
   const changeActiveType = (type: string) => {
-    setActiveType(type);
+    activeType.current = type;
 
     if (type === "hot") {
-      SetCommentsList(_.orderBy(commentList, "like", "desc"));
+      commentList.current = _.orderBy(commentList.current, "like", "desc");
     } else {
-      SetCommentsList(_.orderBy(commentList, "ctime", "desc"));
+      commentList.current = _.orderBy(commentList.current, "ctime", "desc");
     }
   };
 
@@ -119,7 +118,7 @@ const App = () => {
       like: 0,
     };
 
-    SetCommentsList([...commentList, newComment]);
+    commentList.current = [...commentList.current, newComment];
     textareaRef.current!.value = "";
     textareaRef.current!.focus();
   };
@@ -139,7 +138,7 @@ const App = () => {
               <span
                 key={tab.type}
                 className={classNames("nav-item", {
-                  active: tab.type === activeType,
+                  active: tab.type === activeType.current,
                 })}
                 onClick={() => changeActiveType(tab.type)}
               >
@@ -188,7 +187,7 @@ const App = () => {
         {/* comment list */}
         <div className="reply-list">
           {/* comment item */}
-          {commentList.map((elements: any) => (
+          {commentList.current.map((elements: any) => (
             <div className="reply-item" key={elements.rpid}>
               {/* profile */}
               <div className="root-reply-avatar">
