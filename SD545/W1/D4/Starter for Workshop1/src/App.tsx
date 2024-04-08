@@ -1,7 +1,6 @@
-import { deflateRawSync } from "zlib";
 import "./App.scss";
-import App1 from "./App-Copy";
 import avatar from "./images/bozai.png";
+import App1 from "./App-Copy";
 import { ChangeEvent, useRef, useState } from "react";
 import classNames from "classnames";
 import _ from "lodash";
@@ -18,6 +17,50 @@ interface comment {
   content: string;
   ctime: string;
   like: number;
+}
+
+type Props = {
+  rpid: number | string;
+  user: {
+    uid: string;
+    avatar: string;
+    uname: string;
+  };
+  content: string;
+  ctime: string;
+  like: number;
+  deleteComment: (rpid: number | string) => void;
+};
+
+function ReplyItems(props: Props) {
+  const { rpid, user, content, ctime, like, deleteComment } = props;
+
+  return (
+    <div className="reply-item">
+      <div className="root-reply-avatar">
+        <div className="bili-avatar">
+          <img className="bili-avatar-img" src={user.avatar} alt="Profile" />
+        </div>
+      </div>
+      <div className="content-wrap">
+        <div className="user-info">
+          <div className="user-name">{user.uname}</div>
+        </div>
+        <div className="root-reply">
+          <span className="reply-content">{content}</span>
+          <div className="reply-info">
+            <span className="reply-time">{ctime}</span>
+            <span className="reply-time">Like: {like}</span>
+            {props.user.uid === user.uid && (
+              <span className="delete-btn" onClick={() => deleteComment(rpid)}>
+                Delete
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 // Comment List data
@@ -90,7 +133,7 @@ const tabs = [
 
 const App = () => {
   const commentList = useRef<comment[]>(_.orderBy(defaultList, "like", "desc"));
-  const activeType = useRef("hot");
+  const activeType = useRef<string>("hot");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const deletecomment = (rpid: number | string) => {
@@ -188,42 +231,15 @@ const App = () => {
         <div className="reply-list">
           {/* comment item */}
           {commentList.current.map((elements: any) => (
-            <div className="reply-item" key={elements.rpid}>
-              {/* profile */}
-              <div className="root-reply-avatar">
-                <div className="bili-avatar">
-                  <img className="bili-avatar-img" alt="" />
-                </div>
-              </div>
-
-              <div className="content-wrap">
-                {/* username */}
-                <div className="user-info">
-                  <div className="user-name">{elements.user.uname}</div>
-                </div>
-                {/* comment content */}
-                <div className="root-reply">
-                  <span className="reply-content">{elements.content}</span>
-                  <div className="reply-info">
-                    {/* comment created time */}
-                    <span className="reply-time">{elements.ctime}</span>
-                    {/* total likes */}
-                    <span className="reply-time">Like:{elements.like}</span>
-                    {elements.user.uid === user.uid && (
-                      <span
-                        className="delete-btn"
-                        onClick={() => deletecomment(elements.rpid)}
-                      >
-                        Delete
-                      </span>
-                    )}
-                    {/* {elements.user.uid===user.uid?      (<span className="delete-btn" onClick={()=>deletecomment(elements.rpid)}>
-                      Delete
-                    </span>):" "} */}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ReplyItems
+              key={elements.rpid}
+              rpid={elements.rpid}
+              user={elements.user}
+              content={elements.content}
+              ctime={elements.ctime}
+              like={elements.like}
+              deleteComment={deletecomment}
+            />
           ))}
         </div>
       </div>
@@ -233,3 +249,14 @@ const App = () => {
 };
 
 export default App;
+
+// This assignment builds upon Lab3 - the workshop1 forum.
+
+// Your task is to create a new component specifically for the "reply-item" feature. Please refer to the attached lab4.png for inspiration.
+
+// To complete this assignment, define the new component within the "App.tsx" file, in the same location as the "App" Component. We will explore organizing components into separate files in Lecture 6.
+
+// You are required to implement this functionality in one way:
+
+// use parent-to-children communication
+// Wishing you a wonderful weekend.

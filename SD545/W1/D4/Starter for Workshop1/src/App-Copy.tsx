@@ -1,11 +1,10 @@
-import { useRef, useState } from "react";
+import { useState, useRef } from "react";
 import "./App.scss";
 import avatar from "./images/bozai.png";
 import classNames from "classnames";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
 import dayjs from "dayjs";
-import { textChangeRangeIsUnchanged } from "typescript";
 
 interface comment {
   rpid: number | string;
@@ -59,6 +58,17 @@ const defaultList = [
     ctime: "10-19 09:00",
     like: 66,
   },
+  {
+    rpid: 4,
+    user: {
+      uid: "30009257",
+      avatar,
+      uname: "John",
+    },
+    content: "Follow Me",
+    ctime: "10-18 09:00",
+    like: 77,
+  },
 ];
 // current logged in user info
 const user = {
@@ -78,35 +88,35 @@ const tabs = [
 
 const App1 = () => {
   const [commentList, setCommentList] = useState<comment[]>(defaultList);
-  const [activeType, SetActiveType] = useState("hot");
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const [activeType, setActiveType] = useState("hot");
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const deleteComment = (rpid: number | string) => {
-    setCommentList(commentList.filter((item: any) => item.rpid !== rpid));
+    setCommentList(commentList.filter((item) => item.rpid !== rpid));
+  };
+
+  const makePost = () => {
+    const newComment = {
+      rpid: uuidv4(),
+      user,
+      content: textareaRef.current!.value,
+      ctime: dayjs(Date.now()).format("MM-DD HH:mm"),
+      like: 0,
+    };
+
+    setCommentList([...commentList, newComment]);
+    textareaRef.current!.value = "";
+    textareaRef.current!.focus();
   };
 
   const changeActiveType = (type: string) => {
-    SetActiveType(type);
+    setActiveType(type);
 
     if (type === "hot") {
       setCommentList(_.orderBy(commentList, "like", "desc"));
     } else {
       setCommentList(_.orderBy(commentList, "ctime", "desc"));
     }
-  };
-
-  const postcomment = () => {
-    const newcomment = {
-      rpid: uuidv4(),
-      user,
-      content: textAreaRef.current!.value,
-      ctime: dayjs(Date.now()).format("MM-DD HH:mm"),
-      like: 0,
-    };
-    setCommentList([...commentList, newcomment]);
-
-    textAreaRef.current!.value = "";
-    textAreaRef.current!.focus();
   };
 
   return (
@@ -142,7 +152,11 @@ const App1 = () => {
           {/* current logged in user profile */}
           <div className="reply-box-avatar">
             <div className="bili-avatar">
-              <img className="bili-avatar-img" src={avatar} alt="Profile" />
+              <img
+                className="bili-avatar-img"
+                src={user.avatar}
+                alt="Profile"
+              />
             </div>
           </div>
           <div className="reply-box-wrap">
@@ -152,7 +166,7 @@ const App1 = () => {
               placeholder="tell something..."
             />
             {/* post button */}
-            <div className="reply-box-send" onClick={postcomment}>
+            <div className="reply-box-send" onClick={makePost}>
               <div className="send-text">post</div>
             </div>
           </div>
@@ -160,35 +174,37 @@ const App1 = () => {
         {/* comment list */}
         <div className="reply-list">
           {/* comment item */}
-
-          {commentList.map((items: any) => (
-            <div className="reply-item" key={items.rpid}>
+          {commentList.map((item) => (
+            <div className="reply-item" key={item.rpid}>
               {/* profile */}
               <div className="root-reply-avatar">
                 <div className="bili-avatar">
-                  <img className="bili-avatar-img" alt="" />
+                  <img className="bili-avatar-img" src={avatar} alt="Profile" />
                 </div>
               </div>
 
               <div className="content-wrap">
                 {/* username */}
                 <div className="user-info">
-                  <div className="user-name">{items.user.uname}</div>
+                  <div className="user-name">{item.user.uname}</div>
                 </div>
                 {/* comment content */}
                 <div className="root-reply">
-                  <span className="reply-content">{items.content}</span>
+                  <span className="reply-content">{item.content}</span>
                   <div className="reply-info">
                     {/* comment created time */}
-                    <span className="reply-time">{items.ctime}</span>
+                    <span className="reply-time">{item.ctime}</span>
                     {/* total likes */}
-                    <span className="reply-time">Like:{items.like}</span>
-                    <span
-                      className="delete-btn"
-                      onClick={() => deleteComment(items.rpid)}
-                    >
-                      Delete
-                    </span>
+                    <span className="reply-time">Like:{item.like}</span>
+
+                    {item.user.uid === user.uid && (
+                      <span
+                        className="delete-btn"
+                        onClick={() => deleteComment(item.rpid)}
+                      >
+                        Delete
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
