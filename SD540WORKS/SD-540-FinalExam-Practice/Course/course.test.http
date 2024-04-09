@@ -1,0 +1,27 @@
+@STUDENT_ID=65fb80b862c250d4cca69f7e
+@COURSE_ID=65fb9bc031f4002cd73c0d56
+#####
+POST http://localhost:3000/students/{{STUDENT_ID}}/courses
+Content-Type: application/json
+
+{ "code": "S350" , "name":"rella" , "income":300000000,"description":"rella is the best"}
+
+
+
+####
+GET http://localhost:3000/students/{{STUDENT_ID}}/courses/{{COURSE_ID}}
+
+#####
+GET  http://localhost:3000/students/courses
+
+
+####
+
+PATCH http://localhost:3000/students/{{STUDENT_ID}}/courses/{{COURSE_ID}}
+Content-Type:application/json
+
+{"description":"rella is the best"}
+
+
+####
+DELETE http://localhost:3000/students/{{STUDENT_ID}}/courses/{{COURSE_ID}}

@@ -1,0 +1,34 @@
+
+@STUDENT_ID= 65fb80fa62c250d4cca69f80
+######
+
+POST http://127.0.0.1:3000/students
+Content-Type: application/json
+
+{"email":"rella@gmail.com", "name":"rella B","age":24, "location":{"category":"country", "donation":"200"}, "height":"120"}
+
+######
+
+GET http://localhost:3000/students
+
+
+######
+
+GET http://localhost:3000/students/{{STUDENT_ID}}
+
+######
+
+PUT http://localhost:3000/students
+Content-Type: application/json
+
+{"yt_id":"65fb80fa62c250d4cca69f80" , "sem_id": "65fb80b862c250d4cca69f7e","newd":100,"new_h":13}
+
+###
+PUT http://localhost:3000/students/{{STUDENT_ID}}
+Content-Type: application/json
+
+{"yt_id":"65fb80fa62c250d4cca69f80" , "sem_id": "65fb80b862c250d4cca69f7e","newd":100,"new_h":13}
+
+####
+
+GET http://localhost:3000/students?action=asc
