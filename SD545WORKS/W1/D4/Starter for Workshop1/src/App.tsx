@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./App.scss";
 import avatar from "./images/bozai.png";
 import classNames from "classnames";
@@ -20,57 +20,57 @@ interface comment {
 }
 
 // Comment List data
-const defaultList = [
-  {
-    // comment id
-    rpid: 3,
-    // user info
-    user: {
-      uid: "13258165",
-      avatar: "",
-      uname: "Jay Zhou",
-    },
-    // comment content
-    content: "Nice, well done",
-    // created datetime
-    ctime: "10-18 08:15",
-    like: 88,
-  },
-  {
-    rpid: 2,
-    user: {
-      uid: "36080105",
-      avatar: "",
-      uname: "Song Xu",
-    },
-    content: "I search for you thousands of times, from dawn till dusk.",
-    ctime: "11-13 11:29",
-    like: 88,
-  },
-  {
-    rpid: 1,
-    user: {
-      uid: "30009257",
-      avatar,
-      uname: "John",
-    },
-    content:
-      "I told my computer I needed a break... now it will not stop sending me vacation ads.",
-    ctime: "10-19 09:00",
-    like: 66,
-  },
-  {
-    rpid: 4,
-    user: {
-      uid: "30009257",
-      avatar,
-      uname: "John",
-    },
-    content: "Follow Me",
-    ctime: "10-18 09:00",
-    like: 77,
-  },
-];
+// const defaultList = [
+//   {
+//     // comment id
+//     rpid: 3,
+//     // user info
+//     user: {
+//       uid: "13258165",
+//       avatar: "",
+//       uname: "Jay Zhou",
+//     },
+//     // comment content
+//     content: "Nice, well done",
+//     // created datetime
+//     ctime: "10-18 08:15",
+//     like: 88,
+//   },
+//   {
+//     rpid: 2,
+//     user: {
+//       uid: "36080105",
+//       avatar: "",
+//       uname: "Song Xu",
+//     },
+//     content: "I search for you thousands of times, from dawn till dusk.",
+//     ctime: "11-13 11:29",
+//     like: 88,
+//   },
+//   {
+//     rpid: 1,
+//     user: {
+//       uid: "30009257",
+//       avatar,
+//       uname: "John",
+//     },
+//     content:
+//       "I told my computer I needed a break... now it will not stop sending me vacation ads.",
+//     ctime: "10-19 09:00",
+//     like: 66,
+//   },
+//   {
+//     rpid: 4,
+//     user: {
+//       uid: "30009257",
+//       avatar,
+//       uname: "John",
+//     },
+//     content: "Follow Me",
+//     ctime: "10-18 09:00",
+//     like: 77,
+//   },
+// ];
 // current logged in user info
 const user = {
   // userid
@@ -87,12 +87,29 @@ const tabs = [
   { type: "newest", text: "Newest" },
 ];
 
+function useGetList() {
+  const [commentList, setCommentList] = useState<comment[]>([]);
+
+  useEffect(() => {
+    async function getDefaultList() {
+      const res = await fetch("http://localhost:3004/list");
+      const data = await res.json();
+      setCommentList(_.orderBy(data, "like", "desc"));
+    }
+    getDefaultList();
+  }, []);
+  return {
+    commentList,
+    setCommentList,
+  };
+}
+
 const App = () => {
-  const [commentList, setCommentList] = useState<comment[]>(
-    _.orderBy(defaultList, "like", "desc")
-  );
+  const { commentList, setCommentList } = useGetList();
   const [activeType, setActiveType] = useState("hot");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  //only run once because of the empty array
 
   const deleteComment = (rpid: number | string) => {
     setCommentList(commentList.filter((item) => item.rpid !== rpid));
@@ -121,6 +138,7 @@ const App = () => {
       setCommentList(_.orderBy(commentList, "ctime", "desc"));
     }
   };
+
   return (
     <div className="app">
       {/* Nav Tab */}
