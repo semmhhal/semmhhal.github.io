@@ -173,6 +173,11 @@ body {
   cursor: pointer;
   transition: all 0.2s;
 }
+.btn-container {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+}
 
 .btn:hover {
   background-color: #e9bb24;
