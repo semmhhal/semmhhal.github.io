@@ -14,7 +14,7 @@ function App() {
   const updateTodo = (id: string) => {
     //find the todo which you checked, then change done to be not done
     const newTodos = todos.map((todo) =>
-      todo.id == id ? { ...todo, done: !todo.done } : todo
+      todo.id === id ? { ...todo, done: !todo.done } : todo
     );
 
     setTodos(newTodos);
@@ -22,6 +22,14 @@ function App() {
 
   const deleteTodoById = (id: string) => {
     setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const updateAll = () => {
+    setTodos(todos.map((todo) => ({ ...todo, done: !todo.done })));
+  };
+
+  const deleteFinishedTodos = () => {
+    setTodos(todos.filter((todo) => !todo.done));
   };
 
   useEffect(() => {
@@ -43,7 +51,11 @@ function App() {
             onUpdateTodo={updateTodo}
             onDeleteTodoById={deleteTodoById}
           />
-          <Footer todos={todos} />
+          <Footer
+            todos={todos}
+            onUpdateAll={updateAll}
+            onDeleteFinishedTodos={deleteFinishedTodos}
+          />
         </div>
       </div>
     </div>

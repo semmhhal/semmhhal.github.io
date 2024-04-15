@@ -1,6 +1,5 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 import "./index.css";
-import Todo from "../../types";
 
 type Props = {
   id: string;

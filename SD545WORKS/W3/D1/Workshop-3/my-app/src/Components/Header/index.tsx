@@ -28,7 +28,7 @@ export default function Header(props: Props) {
 
   return (
     <div className="todo-header">
-      <input onKeyUp={addTodo} type="text" placeholder="Enter task name" />
+      <input onKeyDown={addTodo} type="text" placeholder="Enter task name" />
     </div>
   );
 }
