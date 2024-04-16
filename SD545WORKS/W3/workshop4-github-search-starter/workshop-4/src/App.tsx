@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import List from "./Components/List";
 import Search from "./Components/Search";
-
+import User from "./types/users";
 function App() {
+  const [searchResponse, setSearchResponse] = useState<User[]>([]);
+
   return (
     <div className="container">
-      <Search />
-      <List />
+      <Search onSetSearchResponse={setSearchResponse} />
+      <List searchResponse={searchResponse} />
     </div>
   );
 }

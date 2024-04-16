@@ -1,53 +1,20 @@
 import "./index.css";
-
-export default function List() {
+import User from "../../types/users";
+type Props = {
+  searchResponse: User[];
+};
+export default function List(props: Props) {
+  const { searchResponse } = props;
   return (
     <div className="row">
-      <div className="card">
-        <a href="https://github.com/reactjs" target="_blank">
-          <img
-            src="https://avatars.githubusercontent.com/u/6412038?v=3"
-            style={{ width: "100px" }}
-          />
-        </a>
-        <p className="card-text">reactjs</p>
-      </div>
-      <div className="card">
-        <a href="https://github.com/reactjs" target="_blank">
-          <img
-            src="https://avatars.githubusercontent.com/u/6412038?v=3"
-            style={{ width: "100px" }}
-          />
-        </a>
-        <p className="card-text">reactjs</p>
-      </div>
-      <div className="card">
-        <a href="https://github.com/reactjs" target="_blank">
-          <img
-            src="https://avatars.githubusercontent.com/u/6412038?v=3"
-            style={{ width: "100px" }}
-          />
-        </a>
-        <p className="card-text">reactjs</p>
-      </div>
-      <div className="card">
-        <a href="https://github.com/reactjs" target="_blank">
-          <img
-            src="https://avatars.githubusercontent.com/u/6412038?v=3"
-            style={{ width: "100px" }}
-          />
-        </a>
-        <p className="card-text">reactjs</p>
-      </div>
-      <div className="card">
-        <a href="https://github.com/reactjs" target="_blank">
-          <img
-            src="https://avatars.githubusercontent.com/u/6412038?v=3"
-            style={{ width: "100px" }}
-          />
-        </a>
-        <p className="card-text">reactjs</p>
-      </div>
+      {searchResponse.map((user) => (
+        <div className="card" key={user.id}>
+          <a href={user.html_url} target="_blank">
+            <img src={user.avatar_url} style={{ width: "100px" }} />
+          </a>
+          <p className="card-text">{user.login}</p>
+        </div>
+      ))}
     </div>
   );
 }
