@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState, MouseEvent } from "react";
 import Product from "../types/product.types";
 import productService from "../apis/services/product.service";
+import { useNavigate } from "react-router-dom";
 export default function AddProduct() {
   const [product, setProduct] = useState<Product>({
     id: -1,
@@ -8,7 +9,7 @@ export default function AddProduct() {
     price: 0,
     description: "",
   });
-
+  const navigate = useNavigate();
   const [flag, setFlag] = useState(false);
   const { title, price, description } = product;
 
@@ -34,8 +35,11 @@ export default function AddProduct() {
       {flag ? (
         <>
           <h3>Save Successfully!</h3>
-          <button className="btn btn-success" onClick={() => setFlag(!flag)}>
-            Add one More?
+          <button
+            className="btn btn-success"
+            onClick={() => navigate("/products")}
+          >
+            Go to Product list
           </button>
         </>
       ) : (
