@@ -1,6 +1,22 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import MusicDB from "../../types/musicDB.types";
+import musicServices from "../../apis/services/music.services";
 export default function GenSongList() {
+  const [songDB, setSongDB] = useState<MusicDB[]>([]);
+
+  useEffect(() => {
+    const addMusic = async () => {
+      try {
+        const response = await musicServices.getMusicDB();
+        const data = await response.data;
+        console.log(data);
+        setSongDB(data);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    addMusic();
+  }, []);
   return (
     <div>
       <h2 style={{ padding: "30px", marginLeft: "20px" }}>
@@ -20,20 +36,32 @@ export default function GenSongList() {
             <th scope="col">Action</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-        </tbody>
+        {songDB.map((song, index) => (
+          <tbody>
+            <tr>
+              <th scope="row">{index}</th>
+              <td>{song.title}</td>
+              <td>{song.releaseDate}</td>
+              <td>
+                <button type="button" className="btn btn-secondary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-plus-lg"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
+                    ></path>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        ))}
       </table>
     </div>
   );

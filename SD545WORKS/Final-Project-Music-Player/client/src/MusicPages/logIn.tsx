@@ -1,13 +1,42 @@
-import React from "react";
 import logo from "../images/logo.webp";
+import { useState, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import musicServices from "../apis/services/music.services";
 
 export default function LogIn() {
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const navigate = useNavigate();
+
+  const signIn = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const response = await musicServices.signIn({
+        username,
+        password,
+      });
+      console.log(response.data.accessToken);
+
+      if (response.status === 200) {
+        const token = await response.data.accessToken;
+        sessionStorage.setItem("token", token);
+        navigate("/homepage");
+      } else {
+        console.log("LogIn failed", response.data);
+        alert("Re-check your username and Password!");
+      }
+    } catch (e) {
+      alert("Incorrect Password/username! try Again");
+    }
+  };
+
   return (
     <main
       className="container"
       style={{ textAlign: "center", marginTop: "100px" }}
     >
-      <form>
+      <form onSubmit={signIn}>
         <img
           className="rounded-circle"
           src={logo}
@@ -21,12 +50,13 @@ export default function LogIn() {
           style={{ width: "400px", marginLeft: "450px" }}
         >
           <input
-            type="email"
             className="form-control"
             id="floatingInput"
-            placeholder="name@example.com"
+            placeholder="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
-          <label htmlFor="floatingInput">Email address</label>
+          <label htmlFor="floatingInput">username</label>
         </div>
         <div
           className="form-floating"
@@ -37,6 +67,8 @@ export default function LogIn() {
             className="form-control"
             id="floatingPassword"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <label htmlFor="floatingPassword">Password</label>
         </div>
@@ -48,9 +80,7 @@ export default function LogIn() {
             marginTop: "20px",
           }}
         >
-          <button className="btn btn-primary w-20 py-2" type="submit">
-            Sign in
-          </button>
+          <button type="submit">Sign in</button>
         </div>
         {/* <p className="mt-5 mb-3 text-body-secondary">© 2017–2024</p> */}
       </form>
