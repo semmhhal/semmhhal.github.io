@@ -16,7 +16,7 @@ export default function LogIn() {
         username,
         password,
       });
-      console.log(response.data.accessToken);
+      console.log(response.data);
 
       if (response.status === 200) {
         const token = await response.data.accessToken;

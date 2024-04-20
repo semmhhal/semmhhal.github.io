@@ -1,7 +1,12 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import logo from "../../images/logo.webp";
 
-export default function Header() {
+type Props = {
+  search: string;
+  onHandleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+};
+export default function Header(props: Props) {
+  const { search, onHandleChange } = props;
   return (
     <div>
       <header className="p-3 text-bg-dark">
@@ -32,19 +37,9 @@ export default function Header() {
                 placeholder="What do you want to listen to?"
                 aria-label="Search"
                 style={{ height: "50px", width: "900px", marginLeft: "100px" }}
+                value={search}
+                onChange={onHandleChange}
               />
-              <button
-                type="button"
-                className="btn btn-success"
-                style={{
-                  height: "50px",
-                  width: "300px",
-                  marginLeft: "400px",
-                  textAlign: "center",
-                }}
-              >
-                Search
-              </button>
             </form>
 
             <div className="text-end">
