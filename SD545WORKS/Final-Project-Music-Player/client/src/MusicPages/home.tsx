@@ -13,8 +13,13 @@ export default function Homepage() {
   const [songDB, setSongDB] = useState<MusicDB[]>([]);
   const [search, setSearch] = useState("");
 
-  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = async (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
+    console.log(e.target.value);
+    const response = await musicServices.getbyTitle(e.target.value);
+    const data = response.data;
+    console.log("data=", data);
+    setSongDB(data);
   };
   useEffect(() => {
     const addMusic = async () => {

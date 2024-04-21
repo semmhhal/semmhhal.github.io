@@ -1,6 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import PubSub from "pubsub-js";
+import musicServices from "../../apis/services/music.services";
+import { PlayData } from "../../types/playlist.types";
+import Playlist2 from "../../types/removePlaylist.types";
 
 export default function YourPlaylist() {
+  const userId = sessionStorage.getItem("userId");
+  const [playlistData, setPlaylist] = useState<PlayData[]>([]);
+
+  useEffect(() => {
+    const fetchPlaylistData = async () => {
+      try {
+        const response = await musicServices.getPlaylist();
+        const data = await response.data;
+        const filteredPlaylist = data.filter(
+          (playlist: PlayData) => playlist.userId === userId
+        );
+        setPlaylist(filteredPlaylist); // Update the playlist data state
+      } catch (error) {
+        console.error("Error fetching playlist:", error);
+      }
+    };
+    const subscribePlaylist = () => {
+      PubSub.subscribe("playlistUpdate", fetchPlaylistData); //listening to updates
+    };
+
+    fetchPlaylistData();
+    subscribePlaylist();
+
+    return () => {
+      PubSub.unsubscribe(fetchPlaylistData);
+    };
+  }, []);
+
+  const handleRemoving = async (id: string) => {
+    try {
+      const songId = id;
+      const response = await musicServices.removePlaylist({ songId });
+      const data = response.data;
+      const deletedPlaylist = data.filter(
+        (item: PlayData) => item.songId !== id
+      );
+      setPlaylist(deletedPlaylist);
+      console.log(data);
+    } catch (e) {
+      console.log("error", e);
+    }
+  };
+
   return (
     <div>
       <h4 style={{ padding: "50px", marginLeft: "15px" }}>Your Playlist:</h4>
@@ -11,22 +58,57 @@ export default function YourPlaylist() {
         <thead>
           <tr>
             <th scope="col">Index</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
+            <th scope="col">Title</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-          </tr>
-        </tbody>
+        {playlistData.map((playlist, index) => (
+          <tbody key={playlist.id}>
+            <tr key={playlist.id}>
+              <th scope="row">{index}</th>
+              <td>{playlist.title}</td>
+              <td>
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  style={{ marginRight: "16px" }}
+                  onClick={() => handleRemoving(playlist.songId)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-dash-circle"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"></path>
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"></path>
+                  </svg>
+                  <span className="visually-hidden">Button</span>
+                </button>
+
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  style={{ marginRight: "16px" }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-play"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z"></path>
+                  </svg>
+                  <span className="visually-hidden">Button</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        ))}
       </table>
     </div>
   );

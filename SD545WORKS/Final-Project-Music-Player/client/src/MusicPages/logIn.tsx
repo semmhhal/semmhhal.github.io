@@ -16,11 +16,12 @@ export default function LogIn() {
         username,
         password,
       });
-      console.log(response.data);
 
       if (response.status === 200) {
-        const token = await response.data.accessToken;
+        const token = response.data.accessToken;
+        const userId = response.data.id;
         sessionStorage.setItem("token", token);
+        sessionStorage.setItem("userId", userId);
         navigate("/homepage");
       } else {
         console.log("LogIn failed", response.data);

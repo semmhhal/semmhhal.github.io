@@ -11,6 +11,8 @@
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "bootstrap-icons": "^1.11.3",
+    "PubSub": "^4.0.0",
+    "pubsub-js": "^1.9.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
@@ -41,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/pubsub-js": "^1.8.6"
   }
 }

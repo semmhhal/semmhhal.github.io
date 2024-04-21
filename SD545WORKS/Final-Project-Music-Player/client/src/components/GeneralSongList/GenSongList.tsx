@@ -1,10 +1,24 @@
 import MusicDB from "../../types/musicDB.types";
+import musicServices from "../../apis/services/music.services";
+import { PlayData } from "../../types/playlist.types";
 
 type Props = {
   songlist: MusicDB[];
 };
 export default function GenSongList(props: Props) {
   const { songlist } = props;
+
+  const handleAdding = async (id: string) => {
+    // const userId = sessionStorage.getItem("userId");
+    const songId = id;
+    console.log(songId);
+    // console.log(userId);
+    const response = await musicServices.addPlaylist({ songId });
+    //publish here
+    const data: PlayData[] = await response.data;
+    PubSub.publish("playlistUpdate", data);
+    console.log(data);
+  };
 
   return (
     <div>
@@ -30,7 +44,11 @@ export default function GenSongList(props: Props) {
               <td>{song.title}</td>
               <td>{song.releaseDate}</td>
               <td>
-                <button type="button" className="btn btn-secondary">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => handleAdding(song.id)}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
