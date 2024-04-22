@@ -59,7 +59,7 @@ export default function Homepage() {
     return () => {
       PubSub.unsubscribe(fetchPlaylistData);
     };
-  });
+  }, []);
 
   const handleRemoving = async (id: string) => {
     try {
