@@ -20,6 +20,9 @@ export default function LogIn() {
       if (response.status === 200) {
         const token = response.data.accessToken;
         const userId = response.data.id;
+        const username = response.data.username;
+        
+        sessionStorage.setItem("username", username);
         sessionStorage.setItem("token", token);
         sessionStorage.setItem("userId", userId);
         navigate("/homepage");

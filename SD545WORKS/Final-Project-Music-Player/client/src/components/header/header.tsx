@@ -1,8 +1,7 @@
-import React, { ChangeEvent, useEffect } from "react";
+import React, { ChangeEvent } from "react";
 import logo from "../../images/logo.webp";
 import { useNavigate } from "react-router-dom";
-import pubSub from "pubsub-js";
-import musicServices from "../../apis/services/music.services";
+
 type Props = {
   search: string;
   onHandleChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -15,19 +14,6 @@ export default function Header(props: Props) {
     sessionStorage.removeItem("token");
     navigate("/");
   };
-
-  useEffect(() => {
-    const getMusic = async () => {
-      try {
-        const response = await musicServices.getbyTitle(search);
-        const data = response.data;
-        console.log(data);
-      } catch (e) {
-        console.error(e);
-      }
-    };
-    getMusic();
-  }, []);
 
   return (
     <div>

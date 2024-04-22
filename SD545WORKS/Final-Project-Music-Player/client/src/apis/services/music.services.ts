@@ -1,7 +1,5 @@
 import SignIn from "../../types/signIn.types";
-import MusicDB from "../../types/musicDB.types";
-import Playlist1 from "../../types/addPlaylist.types";
-import Playlist2 from "../../types/removePlaylist.types";
+import Playlist from "../../types/removePlaylist.types";
 import http from "../axios";
 
 const signIn = (data: SignIn) => {
@@ -19,10 +17,10 @@ const getPlaylist = () => {
 };
 //fetching the playlist that we already have
 
-const addPlaylist = (data: Playlist1) => {
+const addPlaylist = (data: Playlist) => {
   return http.post("/playlist/add", data);
 };
-const removePlaylist = (data: Playlist2) => {
+const removePlaylist = (data: Playlist) => {
   return http.post("/playlist/remove", data);
 };
 

@@ -1,3 +1,3 @@
-export default interface Playlist2 {
+export default interface Playlist {
   songId: string;
 }

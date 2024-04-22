@@ -7,22 +7,22 @@ type Props = {
 };
 export default function GenSongList(props: Props) {
   const { songlist } = props;
+  const username = sessionStorage.getItem("username");
 
   const handleAdding = async (id: string) => {
-    // const userId = sessionStorage.getItem("userId");
     const songId = id;
     console.log(songId);
-    // console.log(userId);
     const response = await musicServices.addPlaylist({ songId });
     //publish here
-    const data: PlayData[] = await response.data;
+    const data: PlayData[] = response.data;
     PubSub.publish("playlistUpdate", data);
-    console.log(data);
   };
 
   return (
     <div>
-      <h2 style={{ padding: "30px", marginLeft: "20px" }}>🎉 Welcome!</h2>
+      <h2 style={{ padding: "30px", marginLeft: "20px" }}>
+        🎉 Welcome {username}!
+      </h2>
       <hr />
       <h4 style={{ padding: "60px" }}> Songs You may be Interested In:</h4>
       <table

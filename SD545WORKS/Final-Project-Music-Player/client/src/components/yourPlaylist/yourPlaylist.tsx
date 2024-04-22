@@ -1,51 +1,18 @@
-import React, { useEffect, useState } from "react";
-import PubSub from "pubsub-js";
-import musicServices from "../../apis/services/music.services";
+import React, { useState, MouseEvent } from "react";
 import { PlayData } from "../../types/playlist.types";
-import Playlist2 from "../../types/removePlaylist.types";
+import MusicPlayer from "../MusicPlayer/MusicPlayer";
 
-export default function YourPlaylist() {
-  const userId = sessionStorage.getItem("userId");
-  const [playlistData, setPlaylist] = useState<PlayData[]>([]);
+type Props = {
+  playlistData: PlayData[];
+  onhandleRemoving: (id: string) => void;
+};
+export default function YourPlaylist(prop: Props) {
+  const [source, setSource] = useState<string>("");
+  const { playlistData, onhandleRemoving } = prop;
 
-  useEffect(() => {
-    const fetchPlaylistData = async () => {
-      try {
-        const response = await musicServices.getPlaylist();
-        const data = await response.data;
-        const filteredPlaylist = data.filter(
-          (playlist: PlayData) => playlist.userId === userId
-        );
-        setPlaylist(filteredPlaylist); // Update the playlist data state
-      } catch (error) {
-        console.error("Error fetching playlist:", error);
-      }
-    };
-    const subscribePlaylist = () => {
-      PubSub.subscribe("playlistUpdate", fetchPlaylistData); //listening to updates
-    };
-
-    fetchPlaylistData();
-    subscribePlaylist();
-
-    return () => {
-      PubSub.unsubscribe(fetchPlaylistData);
-    };
-  }, []);
-
-  const handleRemoving = async (id: string) => {
-    try {
-      const songId = id;
-      const response = await musicServices.removePlaylist({ songId });
-      const data = response.data;
-      const deletedPlaylist = data.filter(
-        (item: PlayData) => item.songId !== id
-      );
-      setPlaylist(deletedPlaylist);
-      console.log(data);
-    } catch (e) {
-      console.log("error", e);
-    }
+  const handleButton = (e: MouseEvent<HTMLButtonElement>) => {
+    const value = e.currentTarget.value;
+    setSource(value);
   };
 
   return (
@@ -63,8 +30,8 @@ export default function YourPlaylist() {
           </tr>
         </thead>
         {playlistData.map((playlist, index) => (
-          <tbody key={playlist.id}>
-            <tr key={playlist.id}>
+          <tbody key={index}>
+            <tr>
               <th scope="row">{index}</th>
               <td>{playlist.title}</td>
               <td>
@@ -72,7 +39,7 @@ export default function YourPlaylist() {
                   type="button"
                   className="btn btn-outline-secondary"
                   style={{ marginRight: "16px" }}
-                  onClick={() => handleRemoving(playlist.songId)}
+                  onClick={() => onhandleRemoving(playlist.songId)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -92,6 +59,8 @@ export default function YourPlaylist() {
                   type="button"
                   className="btn btn-outline-secondary"
                   style={{ marginRight: "16px" }}
+                  value={playlist.urlPath}
+                  onClick={handleButton}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -110,6 +79,7 @@ export default function YourPlaylist() {
           </tbody>
         ))}
       </table>
+      <MusicPlayer src={source} playlistdata={playlistData} />
     </div>
   );
 }
