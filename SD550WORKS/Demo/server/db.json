@@ -1,0 +1,26 @@
+{
+  "books": [
+    {
+      "id": "1"
+    },
+    {
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "title": "Wild at Heart 2",
+      "genre": "Faith",
+      "isbn": "09093738",
+      "format": "paper",
+      "summary": "the Grace of God"
+    },
+    {
+      "id": "4",
+      "title": "Fear is a bully",
+      "genre": "Faith",
+      "isbn": "123-432-654",
+      "format": "paper",
+      "summary": "amazing"
+    }
+  ]
+}

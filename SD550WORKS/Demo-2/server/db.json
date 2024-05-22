@@ -1,0 +1,19 @@
+{
+  "Author": {
+    "id": "author1",
+    "firstname": "Thao",
+    "lastname": "Vu",
+    "phone": "641-123-5678",
+    "email": "thaovu@miu.edu",
+    "address": "Fairfield, IA, 52556"
+  },
+  "Book": {
+    "id": "book1",
+    "title": "Java Essentials",
+    "genre": "Programming",
+    "isbn": "978-0141439518",
+    "format": "paper",
+    "summary": "This book covers all important aspects of Java programming. It is highly recommended by experienced SWE",
+    "authors": ["author1"]
+  }
+}

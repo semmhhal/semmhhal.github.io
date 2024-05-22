@@ -1,0 +1,81 @@
+{
+  "courses": [
+    {
+      "id": "C007",
+      "title": "Big Data ",
+      "faculty": "Prem Nair",
+      "code": "CS371",
+      "rating": 5,
+      "reviews": [
+        {
+          "name": "Kebede F.",
+          "rating": 5,
+          "comment": "Amazing Course"
+        }
+      ]
+    },
+    {
+      "id": "C008",
+      "title": "Fit for Life",
+      "faculty": "Professor Max Borrow",
+      "code": "PE-120",
+      "rating": 5,
+      "reviews": [
+        {
+          "name": "Michael",
+          "rating": 3,
+          "comment": "It is a good course"
+        }
+      ]
+    },
+    {
+      "id": "C009",
+      "title": "Biology",
+      "faculty": "Professor Mark",
+      "code": "BIO-123",
+      "rating": 5,
+      "reviews": [
+        {
+          "name": "Michael",
+          "rating": 3,
+          "comment": "It is a good course"
+        }
+      ]
+    },
+    {
+      "id": "db78",
+      "title": "Chemistry",
+      "faculty": "Professor Margot",
+      "code": "CHEM-874",
+      "rating": 5,
+      "reviews": [
+        {
+          "name": "Michael",
+          "rating": 3,
+          "comment": "It is a good course"
+        }
+      ]
+    },
+    {
+      "id": "7020",
+      "title": "Physics",
+      "faculty": "Professor Brenda",
+      "code": "PHY532",
+      "rating": 5,
+      "reviews": [
+        {
+          "name": "Michael",
+          "rating": 3,
+          "comment": "It is a good course"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "U001",
+      "name": "Thao Vu",
+      "email": "thaovu@miu.edu"
+    }
+  ]
+}
