@@ -1,0 +1,17 @@
+POST http://localhost:3000/users/6481c6356d0a3d1af3211de4/pictures
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgxYzYzNTZkMGEzZDFhZjMyMTFkZTQiLCJmdWxsbmFtZSI6IkFzYWFkIFNhYWQiLCJlbWFpbCI6ImFzYWFkQG1pdS5lZHUiLCJwYXNzd29yZCI6IiIsIl9fdiI6MCwiaWF0IjoxNjg2MjMyNTQxfQ.zmEbE8ynmh_DlFcVX555Eu50rJKcptJPwlbMEzv7azY
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="picture"; filename="ng.png"
+Content-Type: image/png
+
+< ./ng.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+GET http://localhost:3000/users/6481c6356d0a3d1af3211de4/pictures/64822e3a58c4fb4f798b49ac
+
+###
+DELETE http://localhost:3000/users/6481c6356d0a3d1af3211de4/pictures/64822f04c3d584e055dfb2c2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgxYzYzNTZkMGEzZDFhZjMyMTFkZTQiLCJmdWxsbmFtZSI6IkFzYWFkIFNhYWQiLCJlbWFpbCI6ImFzYWFkQG1pdS5lZHUiLCJwYXNzd29yZCI6IiIsIl9fdiI6MCwiaWF0IjoxNjg2MjMyNTQxfQ.zmEbE8ynmh_DlFcVX555Eu50rJKcptJPwlbMEzv7azY

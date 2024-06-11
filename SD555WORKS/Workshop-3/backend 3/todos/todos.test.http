@@ -1,0 +1,31 @@
+POST http://localhost:3000/todos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgzNTMwMGZmYWZhOWIwMGM2NTIxMzAiLCJmdWxsbmFtZSI6IkFzYWFkIFNhYWQiLCJlbWFpbCI6ImFzYWFkQG1pdS5lZHUiLCJpYXQiOjE2ODYzMzExMTN9.W1woxaoWLopG3XwqCcvORi4DMEsEG8AMUKuMMaT7vq0
+
+{
+    "title": "Walk with Theo",
+    "description": "As much as you could!",
+    "completed": false
+}
+
+###
+PUT http://localhost:3000/todos/64835f4e6b6af47fd9d1ff5f
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgzNTMwMGZmYWZhOWIwMGM2NTIxMzAiLCJmdWxsbmFtZSI6IkFzYWFkIFNhYWQiLCJlbWFpbCI6ImFzYWFkQG1pdS5lZHUiLCJpYXQiOjE2ODYzMzExMTN9.W1woxaoWLopG3XwqCcvORi4DMEsEG8AMUKuMMaT7vq0
+
+{
+    "title": "Walk with Theo",
+    "description": "As much as you could!",
+    "completed": true
+}
+
+###
+Get http://localhost:3000/todos/64835f4e6b6af47fd9d1ff5f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgzNTMwMGZmYWZhOWIwMGM2NTIxMzAiLCJmdWxsbmFtZSI6IkFzYWFkIFNhYWQiLCJlbWFpbCI6ImFzYWFkQG1pdS5lZHUiLCJpYXQiOjE2ODYzMzExMTN9.W1woxaoWLopG3XwqCcvORi4DMEsEG8AMUKuMMaT7vq0
+
+###
+Get http://localhost:3000/todos/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgzNTMwMGZmYWZhOWIwMGM2NTIxMzAiLCJmdWxsbmFtZSI6IkFzYWFkIFNhYWQiLCJlbWFpbCI6ImFzYWFkQG1pdS5lZHUiLCJpYXQiOjE2ODYzMzExMTN9.W1woxaoWLopG3XwqCcvORi4DMEsEG8AMUKuMMaT7vq0
+###
+DELETE http://localhost:3000/todos/64835f4e6b6af47fd9d1ff5f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgzNTMwMGZmYWZhOWIwMGM2NTIxMzAiLCJmdWxsbmFtZSI6IkFzYWFkIFNhYWQiLCJlbWFpbCI6ImFzYWFkQG1pdS5lZHUiLCJpYXQiOjE2ODYzMzExMTN9.W1woxaoWLopG3XwqCcvORi4DMEsEG8AMUKuMMaT7vq0
